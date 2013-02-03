@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>{block:PostSummary}{PostSummary} -{/block:PostSummary} {Title}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="description" content="{MetaDescription}"/>
+
+  <link rel="shortcut icon" href="{Favicon}"/>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+  
+  <!-- DEFAULT COLORS -->
+  <meta name="color:Background" content="#ffffff"/>
+  <meta name="color:Body Text" content="#333333"/>
+  <meta name="color:Borders" content="#336699"/>
+  <meta name="color:Links" content="#000000"/>
+  <meta name="color:Link Hover" content="#336699"/>
+  <meta name="color:Titles" content="#000000"/>
+  <meta name="color:Date" content="#336699"/>
+  <meta name="color:Post Footer Text" content="#999999"/>
+  <meta name="color:Quotes" content="#336699"/>
+  <meta name="color:Chat Name" content="#336699"/>
+  <meta name="color:Footer Background" content="#333333"/>
+  <meta name="color:Footer Border" content="#336699"/>
+  <meta name="color:Footer Links" content="#336699"/>
+
+  <meta name="if:Show notes" content="1">
+  <meta name="text:Disqus Shortname" content=""/>
+  <meta name="image:Background" content=""/>
+  <meta name="image:Header" content=""/>
+  
+  <style type="text/css">
+    /* TAG STYLES */
+    body {
+      background: {color:Background} url('{image:Background}') top left repeat;
+      border-top: 7px solid {color:Borders};
+      font: normal 14px/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: {color:Body Text};
+      margin: 0;
+      padding: 3em 0 0;
+    }
+
+    a, a:visited, a:active {
+      color: {color:Links};
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: {color:Link Hover};
+      text-decoration: none;
+    }
+    
+      a img {
+        border: 0;
+      }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: {color:Titles};
+      font-family: Georgia, serif;
+      font-weight: normal;
+    }
+
+    p, ul, ol, blockquote {
+      margin: 0 0 1.5em;
+    }
+
+    ul, ol, blockquote {
+      padding: 0 2em;
+    }
+
+    blockquote {
+      font-family: Georgia, serif;
+      font-style: italic;
+    }
+
+    ul {
+      list-style: square;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+    
+    a img{
+      border: 0;
+    }
+
+
+    /* BASIC LAYOUT */
+    #contain, #footer-container {
+      margin: 0 auto;
+      width: 55em;
+    }
+
+
+    /* SIDEBAR */
+    #sidebar {
+      float: left;
+      margin: 0 0 1.5em;
+      width: 16em;
+    }
+
+    #sidebar p {
+      font-size: .9em;
+    }
+
+    #sidebar h1 {
+      font-weight: normal;
+      font-size: 2em;
+      line-height: 1.5em;
+      margin: 0 0 1em;
+      padding: 0;
+    } 
+
+    #sidebar h1 a, #sidebar h1 a:visited, #sidebar h1 a:active {
+      color: {color:Links};
+      font-weight: normal;
+      text-decoration: none;
+    }
+
+    #sidebar h1 a:hover {
+      color: {color:Link Hover};
+    }
+
+    #sidebar h1 a {
+      display: block;
+    }
+
+    #sidebar h4 {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 0 0 .25em;
+      padding: 0;
+      text-transform: uppercase;
+    }
+
+    #sidebar #about {
+      margin: 0 0 3em;
+    }
+
+    #sidebar #twitter_div ul,
+    #sidebar #other ul {
+      list-style: none;
+      margin: 0 0 3em;
+      padding: 0;
+    }
+
+    #sidebar #twitter_update_list a {
+      display: block;
+    }
+    
+    #sidebar #other a, #sidebar #other a:visited, #sidebar #other a:active {
+      font-size: .9em;
+      line-height: 2em;
+      padding-left: 0.75em;
+    }
+
+
+    /* FOOTER */
+    #footer {
+      border-top: 4px solid {color:Footer Border};
+      background: {color:Footer Background};
+      color: {color:Background};
+      clear: both;
+      margin: 0;
+      overflow: auto;
+      padding: 0 0.5em;
+    }
+    
+      #footer #footer-container {
+        margin: 0 auto;
+        padding: 0.5em 0;
+        width: 55em;
+      }
+      
+      #footer a, #footer a:visited, #footer a:active {
+        color: {color:Footer Links};
+      }
+    
+      #footer a:hover {
+        color: {color:Background};
+      }
+    
+      #footer h4 {
+        border-bottom: 1px solid {color:Background};
+        color: {color:Background};
+        font-size: 1.2em;
+        margin-bottom: 0.75em;
+      }
+      
+      #footer #colophon {
+        margin-right: 39em;
+      }
+    
+      #footer #following {
+        float: right;
+        width: 35.5em;
+      }
+    
+        #footer #following ul {
+          list-style: none;
+          padding: 0;
+        }
+      
+          #footer #following ul li {
+            float: left;
+            margin: 0 0.5em 0.5em 0;
+          }
+
+
+    /* PREVIOUS-NEXT LINKS */  
+    #pagination a, #pagination a:visited, #pagination a:active {
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #pagination #prev {
+      margin-right: 2em;
+    }
+
+    #pagination #next {
+      margin-left: 2em;
+    }
+
+
+    /* CONTENT */
+    #content {
+      margin-bottom: 4.5em;
+      margin-left: 18.5em;
+      min-width: 500px;
+    }
+
+    #content .date {
+      border-bottom: 1px solid {color:Date};
+      color: {color:Date};
+      display: block;
+      letter-spacing: .1em;
+      margin-bottom: 1.5em;
+      text-transform: uppercase;
+    }
+
+    #content h2 {
+      font-size: 1.4em;
+      line-height: 1.1em;
+      margin: .25em 0 .75em;
+    }
+
+    .post-footer {
+      color: {color:Post Footer Text};
+      font-size: .8em;
+      text-align: right;
+    }
+
+		.post-footer .notes-link {
+			margin-left: 0.5em;
+			text-decoration: undelrine;
+		}
+		
+    .post-footer .permalink {
+      margin-left: 0.5em;
+    }
+    
+    .post-footer .reblog {
+      font-style: italic;
+      margin-left: 1em;
+    }
+    
+    .post-footer .tags {
+      display: block;
+    }
+
+    .regular, .quote, .link, .photo, .conversation, .video, .audio, .photoset-post {
+      margin: 0 0 4.5em;
+    }
+	
+	.regular img {
+		max-width: 100%;
+	}
+
+    .regular h4 {
+      font-size: 1.2em;
+      margin-bottom: .5em;
+      margin-top: 2.2em;
+    }
+
+    .quote big {
+      color: {color:Quotes};
+      font: bold 4em/0 Georgia, serif;
+      padding: 0 .1em;
+      vertical-align: -.45em;
+    }
+
+    .quote .words {
+      font: bold 1.1em Georgia, serif;
+      line-height: 1.5;
+    }
+
+    .quote .source {
+      display: block;
+      margin-top: .5em;
+      padding: 0;
+    }
+
+    .link .link-body, .quote .quote-body {
+      margin-bottom: 1.5em;
+    }
+
+    .conversation ul {
+      list-style: none;
+      padding: 0 1em;
+    }
+
+    .conversation ul li .person {
+      color: {color:Chat Name};
+      font-weight: bold;
+      margin-right: 1em;
+    }
+
+  	/* NOTES */
+		#notes-container { margin-top: 3em; }
+  	ol.notes { display: block; margin: 0; padding: 0; }
+  	ol.notes li.note { margin: 0 0 10px 0; padding: 0 0 10px 0 }
+  	ol.notes img.avatar { display: none; }
+
+    .clear {
+    	clear: both;
+    }
+
+		#disqus_thread {
+			margin: 3em 0;
+		}
+    
+    {CustomCSS}
+  </style>
+<!--[if lte IE 6]>
+  <style type="text/css">
+    #sidebar h1 a { height: 76px; }
+    #sidebar #other ul li { width: 98%; }
+    h4 { font-size: 1.1em; }
+
+    .quote big {
+      font: bold 4em/.7 Georgia, serif;
+      padding: 0 .1em;
+      vertical-align: -.45em;
+    }
+    
+    #content { width: 500px; }
+  </style>
+<![endif]-->
+
+  <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+</head>
+<body>
+  <div id="contain">
+    <div id="sidebar">
+      {block:IfNotHeaderImage}<h1><a href="/">{Title}</a></h1>{/block:IfNotHeaderImage}
+      {block:IfHeaderImage}<img src="{image:Header}" style="max-width: 100%">{/block:IfHeaderImage}
+      
+      <div id="about">
+      <h4>About</h4>
+      {Description}
+      {block:HasPages}
+      <br/><br/>
+      {block:Pages}<a href="{URL}">{Label}</a><br/>{/block:Pages}
+      {/block:HasPages}
+      </div> <!-- end about -->
+      
+      <!--
+          TWITTER BADGE
+          If you'd like a twitter badge, uncomment the following div,
+          and change <username>s to your twitter username
+      -->
+      
+      <!--
+      <div id="twitter_div">
+        <h4><a href="http://twitter.com/<username>">Latest Tweet</a></h4>
+        <ul id="twitter_update_list">
+          <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/<username>.json?callback=twitterCallback2&amp;count=1"></script></p>
+      </div>
+      -->
+
+      <div id="other">
+        <h4>Like What You See?</h4>
+        <ul>
+          <li><a href="{RSS}" id="rss">Subscribe to the RSS</a></li>
+          <li><a href="/archive" id="archives">Browse the Archives</a></li>
+          <li><a href="/random">See a random post</a></li>
+          <li><a href="/mobile">Get the mobile version</a></li>
+        </ul>
+      </div>
+    </div> <!-- end sidebar div -->
+    
+    <div id="content">
+    {block:Posts}
+      {block:NewDayDate}
+      <span class="date">{DayOfWeek}, {Month} {DayOfMonth}, {Year}</span>
+      {/block:NewDayDate}
+      
+      {block:Regular}
+      <div class="regular">
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        {Body}
+      {/block:Regular}
+      
+      {block:Quote}
+      <div class="quote">
+        <div class="quote-body">
+          <big>&#0147;</big><span class="words">{Quote}</span><big>&#0148;</big>
+          {block:Source}<span class="source">{Source}</span>{/block:Source}
+        </div>
+      {/block:Quote}
+
+      {block:Link}
+      <div class="link">
+        <h2><a href="{URL}" {Target}>{Name}</a></h2>
+        <div class="link-body">
+          {block:Description}{Description}{/block:Description}
+        </div>
+      {/block:Link}
+      
+      {block:Conversation}
+      <div class="conversation">
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        <ul>
+          {block:Lines}
+          <li>
+            {block:Label}<span class="person">{Label}</span>{/block:Label}
+            <span class="line">{Line}</span>
+          </li>
+          {/block:Lines}
+        </ul>
+      {/block:Conversation}
+
+      {block:Photo}
+      <div class="photo">
+        {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Photo}
+
+			{block:Photoset}
+			<div class="photoset-post">
+				{Photoset-500}
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			{/block:Photoset}
+
+      {block:Video}
+      <div class="video">
+        {Video-500}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Video}
+      
+      {block:Audio}
+      <div class="audio">
+        {AudioPlayerBlack}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Audio}
+        
+        <div class="post-footer">
+          {block:Date}Posted at {12Hour}:{Minutes}{AmPm}{/block:Date}
+					{block:IfShowNotes}
+					{block:NoteCount}<a href="{Permalink}#notes-container" class="notes-link">{NoteCountWithLabel}</a>{/block:NoteCount}
+					{/block:IfShowNotes}
+          <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          
+          {block:RebloggedFrom}
+          <span class="reblog">Reblogged via <a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+          {/block:RebloggedFrom}
+          
+          {block:Date}
+          {block:IfDisqusShortname}
+          <span class="comments-link"><a href="{Permalink}#disqus_thread" class="permalink">Comments</a></span>
+          {block:IfDisqusShortname}
+          {/block:Date}
+          
+          {block:HasTags}
+          <span class="tags">Tags:
+            {block:Tags}
+            <a href="{TagURL}">{Tag}</a>
+            {/block:Tags}
+          </span>  
+          {/block:HasTags}
+          </span>
+        </div> <!-- end post footer -->
+        
+	    {block:Permalink}
+	        {block:IfShowNotes}
+           {block:PostNotes}
+					<div id="notes-container">
+             <h3>Notes</h3>
+             {PostNotes}
+					</div>
+           {block:PostNotes}
+           {/block:IfShowNotes}
+
+            {block:IfDisqusShortname}
+    	    <div id="disqus_thread"></div>
+    	    <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+    	    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+    	    {/block:IfDisqusShortname}
+	    {/block:Permalink}
+        
+      </div> <!-- end single post -->
+    {/block:Posts}
+      
+    {block:Pagination}
+      <div id="pagination">
+        {block:NextPage}
+        <a href="{NextPage}" id="prev">&#8592; Earlier Posts</a>
+        {/block:NextPage}
+        Page {CurrentPage} of {TotalPages}
+        {block:PreviousPage}
+        <a href="{PreviousPage}" id="next">Later Posts &#8594;</a>
+        {/block:PreviousPage}
+      </div>
+    {/block:Pagination}
+    
+    
+    {block:PermalinkPagination}
+      <div id="pagination">
+        {block:PreviousPost}
+        <a href="{PreviousPost}" id="prev">&#8592; Previous Post</a>
+        {/block:PreviousPost}
+        {block:NextPost}
+        <a href="{NextPost}" id="next">Next Post &#8594;</a>
+        {/block:NextPost}
+      </div>
+    {/block:PermalinkPagination}
+    </div> <!-- end content div -->
+  </div> <!-- end containing div -->
+  
+  <div id="footer">        
+    <div id="footer-container">  
+      <div id="following">
+        <h4>Tumbleroll</h4>
+        {block:Following}
+        <ul>
+          {block:Followed}
+          <li><a href="{FollowedURL}" title="{FollowedName}"><img src="{FollowedPortraitURL-30}"></a></li>
+          {/block:Followed}
+        </ul>
+        {/block:Following}
+      </div>
+      
+      <div id="colophon">
+        <h4>Colophon</h4>
+        <p>This tumblelog is powered by <a href="http://tumblr.com/">Tumblr</a>, and was designed by <a href="http://cubicle17.com/">Bill Israel</a>.</p>
+      </div>
+    </div> <!-- end footer container -->
+  </div> <!-- end footer -->
+
+	{block:IfDisqusShortname}
+  <script type="text/javascript">
+  //<![CDATA[
+  (function() {
+      var links = document.getElementsByTagName('a');
+      var query = '?';
+      for(var i = 0; i < links.length; i++) {
+      if(links[i].href.indexOf('#disqus_thread') >= 0) {
+          query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      }
+      }
+      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+  })();
+  //]]>
+  </script>
+  {/block:IfDisqusShortname}
+</body>
+</html>

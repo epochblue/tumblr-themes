@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=720, user-scalable=yes"/>
+	<meta name="description" content="{MetaDescription}"/>
+	<title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
+	
+	<!-- DEFAULT COLORS -->
+	<meta name="color:Background" content="#ffffff"/>
+	<meta name="color:Text" content="#333333"/>
+	<meta name="color:Secondary Text" content="#777777"/>
+	<meta name="color:Tertiary Text" content="#cccccc"/>
+	<meta name="color:Links" content="#c00906"/>
+	<meta name="color:Header Background" content="#444444"/>
+	<meta name="color:Title" content="#ffffff"/>
+	<meta name="color:Description" content="#999999"/>
+	<meta name="color:Post Headers" content="#111111"/>
+	<meta name="color:Big Quote" content="#e0e0e0"/>
+	<meta name="color:Photo Border" content="#dddddd"/>
+	
+	<!-- Disqus Shortname -->
+	<meta name="text:Disqus Shortname" content="" />
+	<meta name="image:Background" content="">
+	
+	<link rel="shortcut icon" href="{Favicon}"/>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+	<link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+	
+	<style type="text/css" media="screen">	
+		/*--[ GLOBAL TAG STYLES ]---------*/
+		html { font-size: 100.01%; }
+		body { background: {color:Background} url('{image:Background}') top left repeat; color: {color:Text}; font: normal 1em/1.5 Georgia, serif; margin: 0; }
+		
+		:focus { outline: none; }
+		a:link, a:visited, a:active { color: {color:Links}; text-decoration: none; }
+		a:hover, a:focus { color: {color:Text}; }
+		a img { border: 0; }
+		h1, h2, h3, h4, h5, h6 { color: {color:Post Headers}; font-weight: normal; margin: 0; padding: 0; }
+		p { margin: 0 0 1.5em; }
+		ul, ol { margin: 0 0 1.5em; padding: 0; }
+		blockquote { border-left: 2px solid {color:Secondary Text}; color: {color:Secondary Text}; margin: 0 1em 1.5em; padding: 0 1em; }
+		blockquote ul, blockquote ol { margin-left: 2em; }
+		
+		/*--[ HEADER ]--------------------*/
+		#header { background: {color:Header Background}; padding: 1.5em 0; margin: 0 0 3em; position: relative; }
+		#inner-header { margin: 0 auto; width: 32em; }
+		#inner-header h1 { font-size: 3em; line-height: 1; }
+		#inner-header h1 a { color: {color:Title}; text-decoration: none; }
+		#inner-header h1 a:hover { color: {color:Description}; }
+		#inner-header h2 { color: {color:Description}; font-size: 1.1em; line-height: 1.363634; }
+		
+		#header-shadow { display: block; background: transparent url(http://static.tumblr.com/eth9fj1/SITklre6t/header-shadow.png) repeat-x top; height: 24px; position: absolute; bottom: -24px; width: 100%; }
+		
+		
+		/*--[ POSTS ]---------------------*/
+		#posts { margin: 4.5em auto 0; width: 32em; }
+		#posts .post { margin-bottom: 2.25em; padding-bottom: 2.25em; position: relative; }
+		
+		/* DAY PAGE BLURB, TAG PAGE BLURB, SEARCH RESULT BLURB */
+		#daypageblurb,
+		#tagpageblurb,
+		#searchresultblurb { color: {color:Secondary Text}; font-size: 1.25em; font-style: italic; line-height: 1.2em; margin-bottom: 2.4em; }
+		
+		/* DATE */
+		.date { border-top: 2px solid {color:Tertiary Text}; position: absolute; left: -6em; text-align: center; width: 4em;}
+		.date .permalink { font-size: 1.2em; font-variant: small-caps; line-height: 1.25; text-decoration: none; text-transform: lowercase; }
+		.date .day, .date .month { display: block; }
+		.date .month { font-size: 1.3em; line-height: 1.15384615385;}
+		
+		/* COMMON POST STYLES */
+		.post h3 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+		.post .caption, .post .source { margin-top: 1.5em; }
+		
+		/* AUDIO */
+		.audio .player .play-count { color: {color:Secondary Text}; float: right; font-size: 0.83333em; }
+		.audio .caption { clear: right; }
+		
+		/* CHATS */
+		.chat ul { list-style: none; margin: 0 0 1.5em; }
+		.chat ul li.odd { color: {color:Secondary Text}; }
+		.chat ul li .who { background: {color:Text}; color: {color:Background}; padding: 0 0.25em; }
+		.chat ul li.odd .who { background: {color:Secondary Text}; }
+		
+		/* PHOTOS */
+		.photo .image { position: relative; }
+		.photo .image img { border: 0.375em solid {color:Photo Border}; }
+		.photo .image .hi-res { background: #333; color: #fff; display: none; font-size: 0.75em; opacity: 0.9; padding: 0 0.5em; position: absolute; bottom: 1.5em; right: 1em; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+		.photo .image:hover .hi-res { display: inline; }
+		
+		/* PHOTOSETS */
+		.photoset .set { border: 0.375em solid {color:Photo Border}; padding: 0; }
+		.photoset .set object, .photoset .set embed { display: block; }
+		
+		/* QUOTES */
+		.quote big { color: {color:Big Quote}; font-size: 6em; font-weight: bold; line-height: 0.5em; position: absolute; left: -0.15em; z-index: 1; }
+		.quote .quote-words { font-size: 1.3em; line-height: 1.15384615385; position: relative; z-index: 10; }
+		.quote .source { color: {color:Secondary Text}; }
+		
+		/* REBLOG NOTES */
+		.reblogged { color: {color:Secondary Text}; display:block; font-size: 0.833333em; font-style: italic; margin: 1.5em 0; text-align: right; }
+		
+		/* POST FOOTER */
+		.post-footer { border-top: 1px solid {color:Tertiary Text}; color: {color:Secondary Text}; font-size: 0.75em; margin: 1.5em 0 0; padding: 0.5em 0 1em; text-align: right; }
+		.post-footer li { display: inline; margin-left: 1em; }
+		
+		/* NOTES */
+		#note-container h4 { font-size: 1.3em; line-height: 1.15384615385; margin-bottom: 1.15384615385em; }
+		#note-container .notes .note { border-bottom: 1px solid #aaa; margin: 0 0 0.75em; padding: 0 0 0.75em}
+		#note-container .notes .avatar { display: none; }
+		
+		
+		/*--[ PAGINATION ]----------------*/
+		#pagination { margin: 3em auto 1.5em; width: 32em; }
+		#pagination a { margin-right: 1.5em; }
+		
+		
+		/*--[ FOOTER ]--------------------*/
+		#footer { border-top: 1px solid {color:Text}; margin: 3em auto 0; padding: 0.75em 0; width: 44em; }
+		#footer #search { float: right; }
+		#footer #search #keywords { border: 1px solid {color:Secondary Text}; padding: 0.25em; }
+		#footer #meta-info { margin: 0; }
+		#footer #meta-info li { display: inline; font-size: 1.1em; margin-right: 1em; }
+		#footer #theme-info { clear: left; margin: 0.75em 0; }
+		#footer #theme-info li { color: {color:Secondary Text}; display: inline; font-size: 0.75em; margin-right: 1em; }
+		
+		/*--[ CUSTOM CSS ]----------------*/
+		{CustomCSS}
+	</style>
+	
+<!--[if lt IE 7]>
+	<style type="text/css" media="screen">
+		#header { background-image: none; margin-bottom: 3em; }
+		#header-shadow { display: none; }
+	</style>
+<![endif]-->
+</head>
+<body>
+	<div id="header">
+		<div id="inner-header">
+			<h1><a href="/">{Title}</a></h1>
+			<h2>{Description}</h2>
+		</div>
+		
+		<div id="header-shadow"></div>
+	</div> <!-- end #header -->
+	
+	<div id="posts" class="autopagerize_page_element">
+		
+		{block:DayPage}
+			<h5 id="daypageblurb">{lang:Viewing everything posted on Month DayOfMonth Year}</h5>
+		{/block:DayPage}
+		
+		{block:TagPage}
+			<h5 id="tagpageblurb">{lang:Showing posts tagged Tag 3}</h5>
+		{/block:TagPage}
+		
+		{block:SearchPage}
+			<h5 id="searchresultblurb">
+			    {block:SearchResults}
+			        {lang:Your search for SearchQuery returned SearchResultCount results}
+			    {/block:SearchResults}
+			    
+			    {block:NoSearchResults}
+			        {lang:No search results for SearchQuery}
+			    {block:NoSearchResults}
+			</h5>
+		{/block:SearchPage}
+		
+		{block:Posts}
+		<div class="post">
+			{block:NewDayDate}
+			<div class="date">
+				<a href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}" class="permalink">
+					<span class="month">{ShortMonth}</span>
+					<span class="day">{DayOfMonthWithZero}</span>
+				</a>
+			</div> <!-- end .date -->
+			{/block:NewDayDate}
+			
+			{block:Audio}
+			<div class="audio">
+				<div class="player">
+					<div class="play-count">{lang:Played PlayCount times}</div>
+					{AudioPlayerBlack}				
+				</div>
+				
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			</div> <!-- end .audio -->
+			{/block:Audio}
+			
+			{block:Chat}
+			<div class="chat">				
+				{block:Title}<h3>{Title}</h3>{/block:Title}
+				
+				<ul>
+					{block:Lines}
+					<li class="{Alt}">
+						{block:Label}<span class="who">{Label}</span>{/block:Label}
+						{Line}
+					</li>
+					{/block:Lines}
+				</ul>
+			</div> <!-- end .chat -->
+			{/block:Chat}
+			
+			{block:Link}
+			<div class="link">
+				<h3><a href="{URL}">{Name}</a></h3>
+				<div class="link-body">
+					{Description}
+				</div>
+			</div> <!-- end .link -->
+			{/block:Link}
+			
+			{block:Photo}
+			<div class="photo">
+				<div class="image">
+					{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+					{block:HighRes}<a href="{PhotoURL-HighRes}" class="hi-res">{lang:Click for high-res photo}</a>{/block:HighRes}
+				</div>
+				
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			</div> <!-- end .photo -->
+			{/block:Photo}
+			
+			{block:Photoset}
+			<div class="photoset">
+				<div class="set">
+					{Photoset-500}
+				</div>
+				
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			</div>
+			{/block:Photoset}
+			
+			{block:Quote}
+			<div class="quote">
+				<big>&ldquo;</big>
+				<div class="quote-words">{Quote}</div>
+				{block:Source}
+				<div class="source">
+					{Source}
+				</div>
+				{/block:Source}
+			</div> <!-- end .quote -->
+			{/block:Quote}
+			
+			{block:Text}
+			<div class="text">				
+				{block:Title}<h3>{Title}</h3>{/block:Title}
+				<div class="text-body">
+					{Body}
+				</div>
+			</div> <!-- end .text -->
+			{/block:Text}
+			
+			{block:Video}
+			<div class="video">			
+				{Video-500}
+				
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			</div> <!-- end .video -->
+			{/block:Video}
+			
+			{block:RebloggedFrom}
+			<span class="reblogged">({Reblogged from ReblogParentName 2})</span>
+			{/block:RebloggedFrom}
+			
+			<ul class="post-footer">
+				{block:NoteCount}<li><a href="{Permalink}#note-container">{NoteCountWithLabel}</a></li>{/block:NoteCount}
+				<li><a href="{Permalink}">{lang:Permalink}</a></li>
+				{block:IfDisqusShortname}<li><a href="{Permalink}#disqus_thread">{lang:Comments}</a></li>{/block:IfDisqusShortname}
+				{block:Date}<li>Posted at {12Hour}:{Minutes}{AmPm}</li>{/block:Date}
+				{block:HasTags}
+				<li>Tagged:{block:Tags} <a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}</li>
+				{/block:HasTags}
+			</ul> <!-- end .post-footer -->
+		</div> <!-- end .post -->
+		{/block:Posts}
+		
+		{block:PostNotes}
+		<div id="note-container">
+			<h4>{lang:Notes}</h4>
+			{PostNotes}
+		</div>
+		{/block:PostNotes}
+		
+		{block:IfDisqusShortname}
+    {block:Permalink}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+    {/block:Permalink}
+    {/block:IfDisqusShortname}
+	</div> <!-- end #posts -->
+	
+	{block:Pagination}
+	<div id="pagination" class="autopagerize_insert_before">
+		{block:NextPage}<a href="{NextPage}" rel="next">&larr; {lang:Older entries}</a>{/block:NextPage}
+		{block:PreviousPage}<a href="{PreviousPage}">{lang:Newer entries} &rarr;</a>{/block:PreviousPage}
+	</div>
+	{/block:Pagination}
+	
+	{block:PermalinkPagination}
+	<div id="pagination">
+		{block:PreviousPost}<a href="{PreviousPost}">&larr; {lang:Previous post}</a>{/block:PreviousPost}
+		{block:NextPost}<a href="{NextPost}">{lang:Next post} &rarr;</a>{/block:NextPost}
+	</div>
+	{/block:PermalinkPagination}
+	
+	{block:DayPagination}
+	<div id="pagination">
+		{block:PreviousDayPage}<a href="{PreviousDayPage}">&larr; {lang:Previous day}</a>{/block:PreviousDayPage}
+		{block:NextDayPage}<a href="{NextDayPage}">{lang:Next day} &rarr;</a>{/block:NextDayPage}
+	</div>
+	{/block:DayPagination}
+	
+	<div id="footer">
+		<div id="search">
+			<form id="searchbox" form action="/search" method="get">
+	  		<input type="text" id="keywords" name="q" value="{SearchQuery}"/>
+	  		<input type="submit" id="submit" value="{lang:Search}"/>
+	  	</form>
+		</div> <!-- end #search -->
+		
+		<ul id="meta-info">
+			{block:HasPages}
+				{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+			{/block:HasPages}
+			<li><a href="/archive">{lang:Archive}</a></li>
+			<li><a href="/random">{lang:Random}</a></li>
+			<li><a href="/mobile">{lang:Mobile}</a></li>
+			<li><a href="{RSS}">{lang:RSS}</a></li>
+			{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
+			{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+		</ul>
+		
+		<ul id="theme-info">
+			<li>{lang:Powered by Tumblr 2}</li>
+			<li>ER2 theme by <a href="http://cubicle17.com/">Bill Israel</a></li>
+		</div>
+	</div> <!-- end #footer -->
+	
+	{block:IfDisqusShortname}
+	<!-- Disqus -->
+  <script type="text/javascript">
+  //<![CDATA[
+  (function() {
+      var links = document.getElementsByTagName('a');
+      var query = '?';
+      for(var i = 0; i < links.length; i++) {
+      if(links[i].href.indexOf('#disqus_thread') >= 0) {
+          query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      }
+      }
+      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+  })();
+  //]]>
+  </script>
+  {/block:IfDisqusShortname}
+  </body>
+</html>

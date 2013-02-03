@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!--
+  Theme: LowLight, version 1.3
+  Author: Bill Israel [http://cubicle17.com/]
+  For: Tumblr [http://tumblr.com/]
+  Usage: Free to use and alter, but please give credit.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <!-- DEFAULT COLORS -->
+    <meta name="color:Main Background" content="#262523"/>
+    <meta name="color:Main Text Color" content="#ddc"/>
+    <meta name="color:Post Background" content="#363b39"/>
+    <meta name="color:Post Border" content="#494949"/>
+    <meta name="color:Blockquote Background" content="#4f534f"/>
+    <meta name="color:Blockquote Border" content="#333"/>
+    <meta name="color:Link Color" content="#c93633"/>
+    <meta name="color:Link Hover Color" content="#262523"/>
+    <meta name="color:Header Link Color" content="#eef"/>
+    <meta name="color:Header Link Hover Color" content="#ccb"/>
+    <meta name="color:Description Color" content="#ccb"/>
+    <meta name="color:Date Color" content="#94a970"/>
+    <meta name="color:Date Hover Color" content="#262523"/>
+    <meta name="color:Post Title Color" content="#c93633"/>
+    <meta name="color:Quote Source Color" content="#c93633"/>
+    <meta name="color:Photo Background Color" content="#404040"/>
+    <meta name="color:Photo Border Color" content="#333"/>
+    <meta name="color:Conversation Line Separator" content="#565b59"/>
+    <meta name="color:Conversation Label Color" content="#565b59"/>
+		<meta name="color:Pagination Hover Color" content="#94a970"/>
+    <meta name="color:Footer Text Color" content="#555"/>
+    <meta name="color:Footer Border Color" content="#555"/>
+    <meta name="color:Footer Link Color" content="#94a970"/>
+    <!-- END DEFAULT COLORS -->
+
+		<!-- Other Tumblr Goodies -->
+		<meta name="if:Show Notes" content="0"/>
+		<meta name="text:Disqus Shortname" content=""/>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="description" content="{MetaDescription}"/>
+    <link rel="shortcut icon" href="{Favicon}"/>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+    <title>{Title} {block:PostSummary}- {PostSummary}{/block:PostSummary}</title>
+    <style type="text/css" media="screen">
+      /* CSS Reset by Eric Meyer
+       * http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+       */
+      html, body, div, span, applet, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code,
+      del, dfn, em, font, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td {
+      	margin: 0;
+      	padding: 0;
+      	border: 0;
+      	outline: 0;
+      	font-weight: inherit;
+      	font-style: inherit;
+      	font-size: 100%;
+      	font-family: inherit;
+      	vertical-align: baseline;
+      }
+      /* remember to define focus styles! */
+      :focus {
+      	outline: 0;
+      }
+      body {
+      	line-height: 1;
+      	color: black;
+      	background: white;
+      }
+      ol, ul {
+      	list-style: none;
+      }
+      /* tables still need 'cellspacing="0"' in the markup */
+      table {
+      	border-collapse: separate;
+      	border-spacing: 0;
+      }
+      caption, th, td {
+      	text-align: left;
+      	font-weight: normal;
+      }
+      blockquote:before, blockquote:after,
+      q:before, q:after {
+      	content: "";
+      }
+      blockquote, q {
+      	quotes: "" "";
+      }
+    </style>
+    
+    <style type="text/css" media="screen">
+      body {
+        background: {color:Main Background};
+        color: {color:Main Text Color};
+        font: normal 14px "Trebuchet MS", Helvetica, Arial, sans-serif;
+        line-height: 1.5em;
+      }
+      
+      h1 {
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1em;
+      }
+      
+      h2 {
+        color: {color:Description Color};
+        font-size: 1em;
+        font-weight: normal;
+        padding-left: 3em;
+      }
+      
+      p {
+        margin: 0 0 1.5em;
+      }
+      
+      a, a:visited, a:active {
+        color: {color:Link Color};
+        text-decoration: underline;
+      }
+      
+      a:hover {
+        color: {color:Link Hover Color};
+        text-decoration: none;
+      }
+      
+      abbr {
+        border-bottom-width: 1px;
+        border-bottom-style: dotted;
+      }
+      
+      blockquote {
+        background-color: {color:Blockquote Background};
+        border: 1px solid {color:Blockquote Border};
+        font-style: italic;
+        margin: 0 2.5em 1.5em;
+        padding: .25em 1em;
+      }
+      
+      ul, ol {
+        margin: 1.5em 3em;
+      }
+      
+      ul {
+        list-style: disc;
+      }
+      
+      ol {
+        list-style: decimal;
+      }
+      
+      
+      /* Header */
+      #header {
+        margin: 1em auto;
+        width: 40em;
+      }
+      
+      #header a, #header a:visited, #header a:active {
+        color: {color:Header Link Color};
+        text-decoration: none;
+      }
+      
+      #header a:hover {
+        color: {color:Header Link Hover Color};
+      }
+      
+      
+      /* Posts */
+      #posts {
+        margin: 0 auto;
+        width: 42em;
+      }
+      
+      /* Individual Post */
+      .post {
+        background-color: {color:Post Background};
+        border: 1px solid {color:Post Border};
+        margin: 1.5em 0;
+        padding: 1em; 
+      }
+      
+      .post .date {
+        display: block;
+        font-size: 1.5em;
+        font-weight: normal;
+        margin-bottom: .5em;
+        text-align: right;
+      }
+      
+      .post .date a, .post .date a:visited, .post .date a:active {
+        color: {color:Date Color};
+        text-decoration: none;
+      }
+      
+      .post .date a:hover {
+        color: {color:Date Hover Color};
+      }
+      
+      .post .date a .diff {
+        font-size: 1.6em;
+        line-height: 0;
+      }
+      
+      
+      /* Titles */
+      .regular h3, .conversation h3, .link h3 {
+        color: {color:Post Title Color};
+        font-size: 2em;
+        line-height: 1em;
+        margin-bottom: .5em;
+      }
+      
+      
+      /* Quote Posts */
+      .quote {
+        font-size: 1.5em;
+        line-height: 1em;
+      }
+      
+      .quote .source {
+        color: {color:Quote Source Color};
+      }
+      
+      /* Link Posts */
+      .link h3 a, .link h3 a:visited, .link h3 a:active {
+        text-decoration: underline;
+      }
+      
+      .link h3 a:hover {
+        text-decoration: none;
+      }
+      
+      /* Photo/Video/Audio */
+      .photo, .video, .audio, .photoset {
+        text-align: center;
+      }
+      
+      .photo img {
+        background-color: {color:Photo Background Color};
+        border: 1px solid {color:Photo Border Color};
+        margin: 1em 0 .5em;
+        padding: 5px;
+      }
+      
+      .photo .caption, .video .caption, .audio .caption, .photoset .caption {
+        display: block;
+        text-align: left;
+      }
+      
+      /* Conversations */
+      .conversation ul {
+        list-style: none;
+      }
+      
+      .conversation ul li {
+        border-bottom: 1px solid {color:Conversation Line Separator};
+        padding: .25em 0;
+      }
+      
+      .conversation ul li .person {
+        color: {color:Conversation Label Color};
+        display: block;
+        float: left;
+        width: 9em;
+      }
+      
+      .conversation ul li .line {
+        display: block;
+        margin-left: 10em;
+      }
+
+
+			/* Post Footers */
+			.post-footer {
+				list-style-type: none;
+				margin: 1.5em 0 0;
+				padding: 0;
+			}
+			
+			.post-footer li {
+				display:inline;
+				margin-right: 1em;
+			}
+			
+			/* Disqus Thread */
+			#disqus_thread {
+				margin: 3em 0;
+			}
+			
+			#disqus_thread a:hover {
+				color: {color:Pagination Hover Color};
+			}
+			
+			
+			/* Notes */
+			#notes-container {
+				margin: 3em 0;
+			}
+			
+			#notes-container h3 { font-size: 1.25em; }
+			
+			#notes-container .notes {
+				list-style-type: none;
+				margin: 1.5em 0 0;
+				padding: 0;
+			}
+			
+			#notes-container .notes li {
+				border-bottom: 1px solid {color:Post Background};
+				padding: 0.25em 0;
+			}
+			
+			#notes-container a:hover {
+				color: {color:Pagination Hover Color};
+			}
+      
+      /* Previous and Next Links */
+      #previous-next {
+        font-size: 1.25em;
+        margin: 3em 0 2em;
+        text-align: center;
+      }
+      
+      #previous-next .pagecount {
+        margin: 0 1.5em;
+      }
+      
+      #previous-next a, #previous-next a:visited, #previous-next a:active {
+        text-decoration: none;
+      }
+      
+      #previous-next a:hover {
+				color: {color:Pagination Hover Color};
+        text-decoration: underline;
+      }
+      
+      /* Footer */
+      #footer {
+        border-top: 1px solid {color:Footer Border Color};
+        color: {color:Footer Text Color};
+        margin: 0 auto;
+        width: 40em;
+      }
+      
+      #footer ul {
+        list-style: none;
+        text-align: center;
+      }
+      
+      #footer ul li {
+        display: inline;
+        margin: 0 1em;
+      }
+      
+      #footer ul li a, #footer ul li a:visited, #footer ul li a:active {
+        color: {color:Footer Link Color};
+        text-decoration: none;
+      }
+      
+      #footer ul li a:hover {
+        text-decoration: underline;
+      }
+      
+      {CustomCSS}
+    </style>
+    
+<!--[if IE]>
+    <style type="text/css" media="screen">
+      .conversation ul li {
+        width: 98%;
+      }
+    </style>
+<![endif]-->
+  </head>
+  <body>
+    <div id="header">
+      <h1><a href="/">{Title}</a></h1>
+      <h2>{Description}</h2>
+    </div>
+    
+    <div id="posts">
+      {block:Posts}
+      <div class="post">
+        {block:NewDayDate}<span class="date"><a href="{Permalink}">{Month}<span class="diff">{DayOfMonth}</span>{Year}</a></span>{/block:NewDayDate}
+        {block:SameDayDate}<span class="date"><a href="{Permalink}"><span class="diff">{12Hour}</span>{CapitalAmPm}</a></span>{/block:SameDayDate}
+        
+        {block:Regular}
+        <div class="regular">
+          {block:Title}<h3>{Title}</h3>{/block:Title}
+          {Body}
+        </div> <!-- end regular post -->
+        {/block:Regular}
+      
+        {block:Quote}
+        <div class="quote">
+          &#0147;{Quote}&#0148;
+          {block:Source}<span class="source">{Source}</span>{/block:Source}
+        </div> <!-- end quote post -->
+        {/block:Quote}
+        
+        {block:Link}
+        <div class="link">
+          <h3><a href="{URL}" {Target}>{Name}</a></h3>
+          {block:Description}{Description}{/block:Description}
+        </div> <!-- end link post -->
+        {/block:Link}
+      
+        {block:Photo}
+        <div class="photo">
+          {LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+          {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+        </div> <!-- end photo post -->
+        {/block:Photo}
+
+				{block:Photoset}
+        <div class="photoset">
+          {Photoset-500}
+          {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+        </div> <!-- end photoset post -->
+        {/block:Photoset}
+      
+        {block:Conversation}
+        <div class="conversation">
+          {block:Title}<h3>{Title}</h3>{/block:Title}
+          <ul>
+            {block:Lines}<li>
+              {block:Label}<span class="person">{Label}</span>{/block:Label}
+              <span class="line">{Line}</span>
+            </li>{/block:Lines}
+          </ul>
+        </div> <!-- end conversation post -->
+        {/block:Conversation}
+      
+        {block:Video}
+        <div class="video">
+          {Video-400}
+          {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+        </div> <!-- end video post -->
+        {/block:Video}
+        
+        {block:Audio}
+        <div class="audio">
+          {AudioPlayerGrey}
+          {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+        </div>
+        {/block:Audio}
+				
+				<ul class="post-footer">
+					{block:IfShowNotes}
+						{block:NoteCount}<li><a href="{Permalink}#notes-container">{NoteCountWithLabel}</a></li>{/block:NoteCount}
+					{/block:IfShowNotes}
+					{block:IfDisqusShortname}
+						<li><a href="{Permalink}#disqus_thread">Comments</a></li>
+					{/block:IfDisqusShortname}
+				</ul>
+      </div> <!-- end post -->
+      {/block:Posts}
+
+			{block:Permalink}
+				{block:IfDisqusShortname}
+	      	<div id="disqus_thread"></div>
+		      <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+		      <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+	      {/block:IfDisqusShortname}
+	
+				{block:IfShowNotes}
+					{block:PostNotes}
+					<div id="notes-container">
+						<h3>Post Notes</h3>
+						{PostNotes}
+					</div>
+					{/block:PostNotes}
+				{/block:IfShowNotes}
+			{/block:Permalink}
+      
+			{block:Pagination}
+      <div id="previous-next">
+        {block:NextPage}<a href="{NextPage}">&#8592; Older Entries</a>{/block:NextPage}
+        <span class="pagecount">Page {CurrentPage} of {TotalPages}</span>
+        {block:PreviousPage}<a href="{PreviousPage}">Newer Entries &#8594;</a>{/block:PreviousPage}
+      </div> <!-- end previous-next -->
+			{/block:Pagination}
+
+			{block:PermalinkPagination}
+			<div id="previous-next">
+				{block:PreviousPost}<a href="{PreviousPost}">&larr; Previous Post</a>{/block:PreviousPost}
+				<span class="pagecount">&nbsp;</span>
+				{block:NextPost}<a href="{NextPost}">Next Post &rarr;</a>{/block:NextPost}
+			</div>
+			{/block:PermalinkPagination}
+    </div> <!-- end posts-->
+    
+    <div id="footer">
+      <ul>
+        <li>Engine<a href="http://www.tumblr.com/">Tumblr</a></li>
+        <li>Designer<a href="http://cubicle17.com/">Bill Israel</a></li>
+        <li>Feed<a href="/rss">RSS</a></li>
+        <li>Browse<a href="/archive">Archives</a></li>
+      </ul>
+    </div>
+		
+		{block:IfDisqusShortname}
+		<!-- Disqus -->
+	  <script type="text/javascript">
+	  //<![CDATA[
+	  (function() {
+	      var links = document.getElementsByTagName('a');
+	      var query = '?';
+	      for(var i = 0; i < links.length; i++) {
+	      if(links[i].href.indexOf('#disqus_thread') >= 0) {
+	          query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	      }
+	      }
+	      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+	  })();
+	  //]]>
+	  </script>
+	  {/block:IfDisqusShortname}
+  </body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- 
+  Theme: Letterhead  v1.1 [http://www.tumblr.com/theme/10]
+  Author: Bill Israel  [http://cubicle17.com/]
+  For: Tumblr  [http://tumblr.com/]
+  Terms: Free to use and alter, but please give credit.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>{Title} {block:PostSummary}- {PostSummary} {/block:PostSummary}</title>
+	
+	<!-- DEFAULT COLORS -->
+	<meta name="color:Main Background" content="#ffffff"/>
+	<meta name="color:Title Background" content="#000000"/>
+	<meta name="color:Title Border" content="#666666"/>
+	<meta name="color:Text Color" content="#333333"/>
+	<meta name="color:Link Color" content="#aa2200"/>
+	<meta name="color:Heading Color" content="#171717"/>
+	<meta name="color:Image Border" content="#aaaaaa"/>
+	<meta name="color:Image Background" content="#eeeeee"/>
+	
+	<meta name="if:Show notes" content="1">
+	<meta name="text:Disqus Shortname" content="" />
+	
+  <link rel="shortcut icon" href="{Favicon}"/>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+  
+  <!-- iPhone -->
+  <meta name="viewport" content="width=900"/>
+  <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+	
+	<style type="text/css" media="screen">
+	  body {
+	    background: {color:Main Background};
+	    color: {color:Text Color};
+	    font: normal 14px/1.45em Helvetica, Arial, sans-serif;
+	    margin: 0;
+	    padding: 0;
+	  }
+	  
+	  a, a:active, a:visited {
+	    color: {color:Link Color};
+	    font-weight: bold;
+	    text-decoration: none;
+	  }
+	  
+	  a:hover {
+	    text-decoration: underline;
+	  }
+	  
+	  h1, h2, h3, h4, h5, h6 {
+	    color: {color:Heading Color};
+	    margin: 0;
+	    padding: 0;
+	  }
+	  
+	  blockquote, p, ol, ul {
+	    margin-top: 0;
+	    margin-bottom: 1.5em;
+	  }
+	  
+	  blockquote {
+	    border-left: 2px solid #333;
+	    font-style: italic;
+	    margin: 0 2em 1.5em 1.5em;
+	    padding-left: 1em;
+	  }
+	  
+	  
+	  /* TITLE */
+	  #title {
+	    background: {color:Title Background};
+        border-bottom: 5px solid {color:Title Border};
+	    color: {color:Main Background};
+	    font-size: 1.5em;
+	    line-height: .55em;
+	    padding: 1em 6em 0;
+	  }
+	  
+	  #title a {
+	    color: {color:Main Background};
+	  }
+	  
+	  
+	  /* LAYOUT */
+	  #content, #previous-next {
+	    margin: 3em 25.5em 3em  9em;
+	    min-width: 480px;
+	  }
+	  
+	  #sidebar {
+	    float: right;
+	    margin: 3em 7.5em 0 0;
+	    width: 15em;
+	  }
+	  
+	  #previous-next {
+	    clear: right;
+	  }
+
+	  
+	  /* SIDEBAR */
+		#sidebar #search {
+			margin-bottom: 3em;
+		}
+	
+	  #sidebar #description {
+	    margin-bottom: 3em;
+	  }
+	  
+	  #sidebar p, #sidebar ul {
+	    font-size: .9em;
+      margin-left: 1em;
+	  }
+	  
+	  #sidebar ul {
+	    list-style: none;
+      margin-bottom: 3em;
+	    padding: 0;
+	  }
+	  
+	  
+	  /* FOLLOWING LIST */
+	  #following li {
+	    display: inline;
+	    margin-right: 1em;
+	  }
+  
+	    #following li a img {
+	      border: 0;
+	    }
+    
+    
+    /* COLOPHON */
+    #colophon {
+      border-top: 1px solid {color:Title Border};
+      margin-top: 4.5em;
+      text-align: right;
+    }
+    
+    #colophon li {
+      font-size: .85em;
+    }
+
+		
+		/* Search Result Count */
+		#searchresultcount {
+			margin: 0 0 3em;
+		}
+	  
+	  
+	  /* CONTENT */
+	  #content h3 {
+	    font-size: 1.3em;
+	    margin-bottom: .5em;
+	  }
+	  
+	  
+	  /* DATES */
+	  .date {
+	    position: absolute;
+	    left: 2.5em;
+	    text-transform: uppercase;
+	    width: 3.5em;
+	  }
+	  
+	  .date .day {
+	    font-size: 1.3em;
+	  }
+	  
+	  .date a {
+	    border-top: 1px solid #aaa;
+	    display: block;
+	    font-size: 1.5em;
+	    font-weight: normal;
+	    margin-top: .25em;
+	    padding-top: .25em;
+	    text-align: right;
+	  }
+	  
+	  /* POST STYLES */
+	  .post {
+	    margin: 0 0 6em;
+	  }
+	  
+	  .regular h3 a, .conversation h3 a {
+	    color: {color:Heading Color};
+	  }
+	  
+	  .quote big {
+	    color: {color:Heading Color};
+      float: left;
+	    font: bold 4.5em/1px Georgia, serif;
+	    margin-top: .45em;
+	  }
+	  
+	  .quote .words {
+	    display: block;
+	    font-size: 1.25em;
+	    margin-left: 2.3em;
+	  }
+	  
+	  .quote .source {
+      display: block;
+      margin: .5em 0 1.5em 2.8em;
+	  }
+	  
+	  
+	  .photo img {
+	    background: {color:Image Background};
+	    border: 1px solid {color:Image Border};
+	    padding: 3px;
+	  }
+	  
+	  .photo .caption, .video .caption, .audio .caption {
+	    display: block;
+	    margin: .5em 0 1.5em;
+	  }
+	  
+	  .conversation ul {
+	    list-style: none;
+	    padding-left: 1.5em;
+	  }
+	  
+	  .conversation ul li {
+	    margin-bottom: .25em;
+	  }
+	  
+	  .conversation ul li .person {
+	    font-weight: bold;
+	  }
+	  
+	  .conversation ul li .said {
+	    margin-left: .75em;
+	  }
+	  
+	  p.notes_and_comment_count {
+	      font-size: 0.9em;
+	  }
+	  
+	    p.notes_and_comment_count a {
+	        color: {color:Text Color};
+	        font-weight: normal;
+	    }
+	  
+	    .quote p.notes_and_comment_count {
+	        margin: 0 0 0 39px;
+	    }
+	    
+	    .conversation p.notes_and_comment_count {
+	        margin: 0 0 0 21px;
+	    }
+	  
+	  ol.notes {
+	      font-size: 0.9em;
+	      list-style-type: none;
+	      padding-left: 0;
+	  }
+	  
+	  #disqus_thread {
+	      width: 500px;
+	  }
+	  
+	  /* PREVIOUS NEXT LINKS */  
+	  #previous-next #older-entries {
+	    margin-right: 1em;
+	  }
+	  
+	  #previous-next #newer-entries {
+	    margin-left: 1em;
+	  }
+	  
+		.query { font-weight: bold; }
+	  
+	.post .regular img {
+	  max-width: 100%;
+	}
+
+	  /* CUSTOM CSS */
+	  {CustomCSS}
+	</style>
+  
+<!--[if lt IE 7]>
+  <style type="text/css" media="screen">
+    #sidebar {
+      margin: 3em 3.75em 0 2.5em;
+    }
+  </style>
+<![endif]-->
+</head>
+<body>
+  <h1 id="title"><a href="/">{Title}</a></h1>
+
+  <div id="sidebar">
+		<h4>Search</h4>
+		<div id="search">
+			<form action="/search" method="get">
+			    <input type="text" size="15" name="q" value="{SearchQuery}"/>
+			    <input type="submit" value="Search"/>
+			</form>
+		</div>
+	
+    <h4>Like What You See?</h4>
+    <ul id="nav">
+      {block:HasPages}
+        {block:Pages}<li><a href="{URL}">{Label}</a></li>{block:Pages}
+      {block:HasPages}
+      <li><a href="{RSS}" id="rss">Get the RSS</a></li>
+      <li><a href="/archive" id="archive">Browse the Archive</a></li>
+    </ul>
+    
+    <h4>About</h4>
+    <div id="description">{Description}</div>
+    
+    {block:Following}
+    <h4>Tumbleroll</h4>
+    <ul id="following">
+      {block:Followed}
+      <li><a href="{FollowedURL}"><img src="{FollowedPortraitURL-24}" alt="{FollowedName}"/></a></li>
+      {/block:Followed}
+    </ul>
+    {/block:Following}
+    
+    <ul id="colophon">
+      <li><a href="http://tumblr.com/">Tumblr</a> powered</li>
+      <li><a href="http://cubicle17.com/">Bill Israel</a> designed</li>
+    </ul>
+  </div>
+
+  <div id="content" class="autopagerize_page_element">
+		{block:SearchPage}
+		<div id="searchresultcount">
+			<p>Your search for <span class="query">{SearchQuery}</span> returned {SearchResultCount} result(s).</p>
+		</div>
+		{/block:SearchPage}
+	
+    {block:Posts}
+    <div class="post">
+      {block:NewDayDate}
+      <div class="date">
+        {ShortMonth} <span class="day">{DayOfMonthWithZero}</span> {Year}
+        <a href="{Permalink}">&#8734;</a>
+      </div>
+      {/block:NewDayDate}
+      {block:SameDayDate}
+      <div class="date">
+        +
+        <a href="{Permalink}">&#8734;</a>
+      </div>
+      {/block:SameDayDate}
+      
+      {block:Text}
+      <div class="regular">
+        {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+        {Body}
+        <p class="notes_and_comment_count">
+            {block:IfShowNotes}( {block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{block:IfNotDisqusShortname}){/block:IfNotDisqusShortname}{/block:NoteCount}{/block:IfShowNotes} {block:IfDisqusShortname}{block:IfShowNotes}{block:NoteCount}&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{/block:NoteCount}{/block:IfShowNotes}{block:IfNotShowNotes}({/block:IfNotShowNotes}{block:Date}<a href="{Permalink}#disqus_thread"></a> ){block:Date}{block:IfDisqusShortname}
+        </p>
+      </div>
+      {/block:Text}
+      
+      {block:Photo}
+      <div class="photo">
+        {LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        <p class="notes_and_comment_count">
+            {block:IfShowNotes}( {block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{block:IfNotDisqusShortname}){/block:IfNotDisqusShortname}{/block:NoteCount}{/block:IfShowNotes} {block:IfDisqusShortname}{block:IfShowNotes}{block:NoteCount}&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{/block:NoteCount}{/block:IfShowNotes}{block:IfNotShowNotes}({/block:IfNotShowNotes}{block:Date}<a href="{Permalink}#disqus_thread"></a> ){block:Date}{block:IfDisqusShortname}
+        </p>
+      </div>
+      {/block:Photo}
+      
+      {block:Quote}
+      <div class="quote">
+        <big>&#8220;</big> <span class="words">{Quote}</span>
+        {block:Source}<div class="source">&mdash; {Source}</div>{/block:Source}
+        <p class="notes_and_comment_count">
+            {block:IfShowNotes}( {block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{block:IfNotDisqusShortname}){/block:IfNotDisqusShortname}{/block:NoteCount}{/block:IfShowNotes} {block:IfDisqusShortname}{block:IfShowNotes}{block:NoteCount}&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{/block:NoteCount}{/block:IfShowNotes}{block:IfNotShowNotes}({/block:IfNotShowNotes}{block:Date}<a href="{Permalink}#disqus_thread"></a> ){block:Date}{block:IfDisqusShortname}
+        </p>
+      </div>
+      {/block:Quote}
+      
+      {block:Link}
+      <div class="link">
+        <h3><a href="{URL}" {Target}>{Name}</a></h3>
+        {block:Description}{Description}{/block:Description}
+        <p class="notes_and_comment_count">
+            {block:IfShowNotes}( {block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{block:IfNotDisqusShortname}){/block:IfNotDisqusShortname}{/block:NoteCount}{/block:IfShowNotes} {block:IfDisqusShortname}{block:IfShowNotes}{block:NoteCount}&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{/block:NoteCount}{/block:IfShowNotes}{block:IfNotShowNotes}({/block:IfNotShowNotes}{block:Date}<a href="{Permalink}#disqus_thread"></a> ){block:Date}{block:IfDisqusShortname}
+        </p>
+      </div>
+      {/block:Link}
+      
+      {block:Video}
+      <div class="video">
+        {Video-400}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        <p class="notes_and_comment_count">
+            {block:IfShowNotes}( {block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{block:IfNotDisqusShortname}){/block:IfNotDisqusShortname}{/block:NoteCount}{/block:IfShowNotes} {block:IfDisqusShortname}{block:IfShowNotes}{block:NoteCount}&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{/block:NoteCount}{/block:IfShowNotes}{block:IfNotShowNotes}({/block:IfNotShowNotes}{block:Date}<a href="{Permalink}#disqus_thread"></a> ){block:Date}{block:IfDisqusShortname}
+        </p>
+      </div>
+      {/block:Video}
+      
+      {block:Audio}
+      <div class="video">
+        {AudioPlayerBlack}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        <p class="notes_and_comment_count">
+            {block:IfShowNotes}( {block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{block:IfNotDisqusShortname}){/block:IfNotDisqusShortname}{/block:NoteCount}{/block:IfShowNotes} {block:IfDisqusShortname}{block:IfShowNotes}{block:NoteCount}&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{/block:NoteCount}{/block:IfShowNotes}{block:IfNotShowNotes}({/block:IfNotShowNotes}{block:Date}<a href="{Permalink}#disqus_thread"></a> ){block:Date}{block:IfDisqusShortname}
+        </p>
+      </div>
+      {/block:Audio}
+      
+      {block:Chat}
+      <div class="conversation">
+        {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+        <ul>
+          {block:Lines}
+          <li>
+            {block:Label}<span class="person">{Label}</span>{/block:Label}
+            <span class="said">{Line}</span>
+          </li>
+          {/block:Lines}
+        </ul>
+          <p class="notes_and_comment_count">
+              {block:IfShowNotes}( {block:NoteCount}<a href="{Permalink}">{NoteCountWithLabel}</a>{block:IfNotDisqusShortname}){/block:IfNotDisqusShortname}{/block:NoteCount}{/block:IfShowNotes} {block:IfDisqusShortname}{block:IfShowNotes}{block:NoteCount}&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;{/block:NoteCount}{/block:IfShowNotes}{block:IfNotShowNotes}({/block:IfNotShowNotes}{block:Date}<a href="{Permalink}#disqus_thread"></a> ){block:Date}{block:IfDisqusShortname}
+          </p>
+      </div>
+      {/block:Chat}
+    </div> <!-- end single post -->
+    {/block:Posts}
+    
+    {block:Permalink}
+    {block:IfShowNotes}{PostNotes}{/block:IfShowNotes}
+
+    {block:IfDisqusShortname}
+    <div id="disqus_thread"{block:IfShowNotes}style="padding: 40px 0 0 0;"{/block:IfShowNotes}></div>
+    <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+    {/block:IfDisqusShortname}
+    {/block:Permalink}
+  </div> <!-- end content -->
+  
+  <div id="previous-next" class="autopagerize_insert_before">
+    {block:NextPage}<a href="{NextPage}" id="older-entries" rel="next">&#8592; Older Entries</a>{/block:NextPage}
+    Page {CurrentPage} of {TotalPages}
+    {block:PreviousPage}<a href="{PreviousPage}" id="newer-entries">Newer Entries &#8594;</a>{/block:PreviousPage}
+  </div>
+  
+  {block:IfDisqusShortname}
+  <script type="text/javascript">
+  //<![CDATA[
+  (function() {
+      var links = document.getElementsByTagName('a');
+      var query = '?';
+      for(var i = 0; i < links.length; i++) {
+      if(links[i].href.indexOf('#disqus_thread') >= 0) {
+          query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      }
+      }
+      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+  })();
+  //]]>
+  </script>
+  {/block:IfDisqusShortname}
+</body>
+</html>

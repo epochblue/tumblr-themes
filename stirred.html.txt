@@ -1,0 +1,378 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>{Title} {block:Permalink}|{block:PostSummary} {PostSummary}{/block:PostSummary}{/block:Permalink}</title>
+  
+	<meta charset="utf-8"/>
+	<meta name="description" content="{MetaDescription}"/>
+	
+	<!-- Default Colors -->
+	<meta name="color:Background" content="#fcfcfc"/>
+	<meta name="color:Text" content="#444444"/>
+	<meta name="color:Secondary Text" content="#777777"/>
+	<meta name="color:Accent" content="#777744"/>
+	<meta name="color:Headings" content="#111111"/>
+	<meta name="color:Secondary Background" content="#ddddaa"/>
+	<meta name="color:Twitter Background" content="#777744"/>
+	<meta name="color:Twitter Text" content="#eeeedd"/>
+	<meta name="color:Twitter Links" content="#ddddaa"/>
+	
+	<link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+	<link rel="shortcut icon" href="{Favicon}"/>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+	
+	<style type="text/css" media="screen">
+    html { font-size: 12px; }
+    body { background: {color:Background}; color: {color:Text}; font: normal 1em/1.5 "Lucida Grande", "Calibri", "Lucida Sans Unicode", Helvetica, sans-serif; margin: 0; padding: 0; }
+
+    :focus { outline: 0; }
+    a:link, a:visited, a:active { color: {color:Accent}; text-decoration: none; }
+    a:hover, a:focus { color: {color:Text}; }
+    a img { border: 0; }
+
+    h1, h2, h3, h4, h5, h6 { color: {color:Headings}; font-family: "Gill Sans MT Pro", "Gill Sans MT", "Gill Sans", "Trebuchet MS", sans-serif; font-weight: normal; margin: 0; padding: 0; }
+
+    h1 { font-size: 2em; line-height: 1.5; margin: 0; }
+    h2 { font-size: 1.75em; line-height: 1; margin-bottom: 0.83333333em; }
+    h3 { font-size: 1.4em; line-height: 1.071428; margin: 0.5em 0 0.571428em;}
+
+    p { margin: 0 0 1.5em; }
+    ul, ol { list-style-position: outside; margin: 0 0 1.5em; padding: 0; }
+    blockquote { border-left: 2px solid {color:Secondary Text}; color: {color:Secondary Text}; margin: 0 1em 1.5em; padding: 0 1em; }
+    blockquote ul, blockquote ol { margin: 0 1.5em 1.5em; }
+    code { font-family: "Monaco", "Andale Mono", monospace; white-space: pre; }
+
+    #container { margin: 3em 10px 1.5em; padding: 0; width: 780px; }
+
+    #header { float: left; margin: 0; padding: 0; text-align: right; width: 220px;}
+    #header h1 a { color: {color:Headings}; }
+    #header #search { margin-top: 1.5em; text-align: right; }
+    #header #search form { margin: 0; padding: 0; }
+    #header #search input#searchbox { border: 1px solid {color:Text}; color: {color:Text}; padding: 0.25em; }
+    #header #search input#submitsearch { display: none; }
+    #header #nav { font-size: 1.1em; list-style: none; margin: 1.5em 0; text-align: right; text-transform: uppercase; }
+    #header #nav li { line-height: 1.8181818; }
+
+
+    /* POSTS */  
+    #posts { margin-left: 260px; padding: 4.5em 0 1.5em; }
+
+    #posts #searchresultcount, #posts #daypageblurb { background: {color:Secondary Background}; font-size: 1.1em; font-style: italic; margin-bottom: 4.5em; padding: 0.75em; text-align: left; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; }
+    #posts #searchresultcount .query { font-weight: bold; font-style: normal; }
+
+    .post { margin-bottom: 4.5em; position: relative; }
+    .caption, .source { margin: 1.5em 0; }
+
+    .link-body { margin-bottom: 1.5em; }
+
+    .photo .img { position: relative; }
+    .photo .img .high-res { background: #000; display: none; opacity: 0.8; padding: 3px; position: absolute; right: 8px; bottom: 13px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+    .photo .img:hover .high-res { color: #ddd; display: block; }
+
+    .quote blockquote { border: 0; color: {color:Text}; font-family: "Gill Sans MT Pro", "Gill Sans MT", "Gill Sans", "Trebuchet MS", sans-serif; font-size: 1.5em; font-weight: normal; line-height: 1; margin: 0; padding: 0; }
+    .quote blockquote p { margin: 0 0 1em; }
+
+    .chat ul { list-style-type: none; }
+    .chat ul li .label { color: {color:Headings}; font-size: 1.1em; font-weight: bold; line-height: 1.363636em; margin-right: 1em; }
+    .chat ul li.even .label { color: {color:Secondary Text}; }
+
+    /* POST FOOTERS */
+    .post-footer { color: {color:Secondary Text}; display: block; font-size: 0.9166666667em; }
+
+    /* NOTES */
+    #post-notes { margin: 3em 0; }
+    #post-notes li { border-bottom: 1px solid #ccc; list-style: none; padding: 0.75em 0; }
+    #post-notes li blockquote { margin-bottom: 0; }
+
+    /* PAGINATION */
+    #pagination { margin: 0 0 1.5em 260px; clear: left; }
+    #pagination #back { margin-right: 2em; }
+
+    /* TWITTER BADGE */
+    #twitter { margin: 1.5em 0; position: relative; }
+    #tweet-icon { height: 16px; margin: 0; width: 16px; position: absolute; left: -25px; }
+    #tweet { background: {color:Twitter Background}; color: {color:Twitter Text}; padding: 0 0.75em; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+    #tweet a { color: {color:Twitter Links}; }
+    #tweet a:hover { color: {color:Twitter Text}; }
+    #tweet a.timestamp { font-size: 0.833333em; margin-left: 0.5em; }
+
+
+    /* FOOTER */
+    #footer { border-top: 1px solid {color:Text}; margin: 3em 0 3em 260px; padding: 1.5em 0; }
+    #footer #rss { background: transparent url(http://static.tumblr.com/eth9fj1/Laml3z7x7/rss.png) no-repeat right center; display: block; float: right; height: 36px; text-indent: -9999px; width: 80px; }
+    #footer #about { padding-right: 80px; }
+    #footer #pages { list-style: none; }
+    #footer #pages li { display: inline; margin-right: 1em; }
+    #footer #etc { color: {color:Secondary Text}; font-size: 0.9166667em; }
+    #footer #etc .power, #footer #etc .backtotop { margin-left: 1em; }
+
+    /* Custom CSS */
+    {CustomCSS}
+	</style>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">
+    // Function taken from http://twitter.com/javascripts/blogger.js
+    function relative_time(time_value) {
+        var values = time_value.split(" ");
+        time_value = values[1] + " " + values[2] + ", " + values[5] + " " + values[3];
+        var parsed_date = Date.parse(time_value);
+        var relative_to = (arguments.length > 1) ? arguments[1] : new Date();
+        var delta = parseInt((relative_to.getTime() - parsed_date) / 1000, 10);
+        delta = delta + (relative_to.getTimezoneOffset() * 60);
+
+        if (delta < 60) {
+            return 'less than a minute ago';
+        } else if (delta < 120) {
+            return 'about a minute ago';
+        } else if (delta < (60 * 60)) {
+            return (parseInt(delta / 60, 10)).toString() + ' minutes ago';
+        } else if (delta < (120 * 60)) {
+            return 'about an hour ago';
+        } else if (delta < (24 * 60 * 60)) {
+            return 'about ' + (parseInt(delta / 3600, 10)).toString() + ' hours ago';
+        } else if (delta < (48 * 60 * 60)) {
+            return '1 day ago';
+        } else {
+            return (parseInt(delta / 86400, 10)).toString() + ' days ago';
+        }
+    }
+
+    function printTweet(data) {
+        var tweet = data[0];
+    	var text = tweet.text;
+
+        // Replace @s and links with actual links
+        var re_url = /(http:\/\/[\d\w\/\.\-_]+)(\s*.*)/;
+        var re_user = /@(\w+)/g;
+
+        text = text.replace(re_url, "<a href='$1'>$1</a>$2");
+        text = text.replace(re_user, "@<a href='http://twitter.com/$1'>$1</a>");
+
+
+        var user = tweet.user.screen_name;
+        var url = "http://twitter.com/" + user + "/statuses/" + tweet.id;
+        var a = '<a class="timestamp" href="' + url + '">' + relative_time(tweet.created_at) + '</a>';
+
+        $("#tweet").html((text + " " + a));
+    }
+
+    function ensureNonEmptySearchBox() {
+        var query = $("#searchbox").val();
+        if (/^\s*$/.test(query)) {
+            $("#searchbox").val("Search");
+        }
+    }
+
+    $(document).ready(function() {
+        ensureNonEmptySearchBox();
+
+        // scroll to the footer when 'about' is clicked
+        $("#about a").click(function() {
+            var scrollTo = $("#footer").offset().top;
+            $("html, body").animate({
+                scrollTop: scrollTo
+            },
+            750);
+            return false;
+        });
+
+        // scroll back up when 'back to top' is clicked
+        $(".backtotop a").click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            },
+            750);
+            return false;
+        });
+
+        // ensure something is in search box when blurred
+        $("#searchbox").focus(function() {
+            var str = $(this).val();
+    				if( str === 'Search' ) { $(this).val(""); }
+        }).blur(ensureNonEmptySearchBox);
+    });
+	</script>
+</head>
+<body>
+  <div id="container">
+		<div id="header">
+    	<h1><a href="/">{Title}</a></h1>
+			<div id="search">
+				<form action="/search" method="get">
+					<input id="searchbox" type="text" name="q" value="{SearchQuery}" size="20"/>
+				  <input id="submitsearch" type="submit" value="Search"/>
+				</form>
+			</div>
+			
+			<ul id="nav">
+				<li id="about"><a href="#footer" title="Want to know more about me?">About</a></li>
+				<li id="archive"><a href="/archive" title="Interested in old posts?">Archive</a></li>
+				<li id="email"><a href="/random" title="Who doesn't like a little randomness?">Random</a></li>
+			</ul>
+		</div> <!-- end #header -->
+    
+    <div id="posts">
+		{block:SearchPage}
+			<p id="searchresultcount">Your search for <a href="/search/{SearchQuery}" class="query">{SearchQuery}</a> found {SearchResultCount} result(s).</p>
+		{/block:SearchPage}
+		
+		{block:DayPage}
+			<p id="daypageblurb">You're viewing all posts for {Month} {DayOfMonth}, {Year}.</p>
+		{/block:DayPage}
+	
+        {block:Posts}
+		<div class="post">
+		  {block:Text}
+	    <div class="text">
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        {Body}
+      </div> <!-- end .text -->
+      {/block:Text}
+    
+      {block:Link}
+      <div class="link">
+				<h2><a href="{URL}">{Name}</a></h2>
+        <div class="link-body">
+          {block:Description}{Description}{/block:Description}
+        </div>
+      </div> <!-- end .link -->
+      {/block:Link}
+    
+      {block:Audio}
+      <div class="audio">
+        {AudioPlayerBlack}
+      
+        {block:Caption}
+        <div class="caption">
+          {Caption}
+        </div>
+        {/block:Caption}
+      </div> <!-- end .audio -->
+      {/block:Audio}
+    
+      {block:Video}
+      <div class="video">
+        {Video-500}
+      
+        {block:Caption}
+        <div class="caption">
+          {Caption}
+        </div>
+        {/block:Caption}
+      </div> <!-- end .video -->
+      {/block:Video}
+    
+      {block:Photo}
+      <div class="photo">
+          <div class="img">
+             {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+            {block:HighRes}<a class="high-res" href="{PhotoURL-HighRes}" title="Everyone loves high-res images">Click for high-res image</a>{/block:HighRes}
+          </div>
+      
+        {block:Caption}
+        <div class="caption">
+          {Caption}
+        </div>
+        {/block:Caption}
+      </div> <!-- end .photo -->
+      {/block:Photo}
+    
+      {block:Quote}
+      <div class="quote">
+        <blockquote><p>&ldquo;{Quote}&rdquo;</p></blockquote>
+      
+        {block:Source}
+        <div class="source">
+          &mdash; {Source}
+        </div>
+        {/block:Source}
+      </div> <!-- end .quote -->
+      {/block:Quote}
+      
+      {block:Chat}
+      <div class="chat">
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        <ul>
+        {block:Lines}
+          <li class="{Alt}">
+            {block:Label}<span class="label">{Label}</span>{/block:Label}
+            <span class="line">{Line}</span>
+          </li>
+        {/block:Lines}
+        </ul>
+      </div> <!-- end .chat -->
+      {/block:Chat}
+			  
+		  {block:Date}
+      <span class="post-footer">
+        Posted on <a href="/day/{Year}/{MonthNumber}/{DayOfMonth}/">{Month} {DayOfMonth}, {Year}</a> at <a href="{Permalink}">{12Hour}:{Minutes}{AmPm}</a>
+      {block:NoteCount} with <a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}
+      {block:RebloggedFrom} and was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentName}">{ReblogParentTitle}</a>{/block:RebloggedFrom}
+      </span> <!-- end .post-footer -->
+      {/block:Date}
+				
+		  {block:PostNotes}
+		  <div id="post-notes">
+			<h3>Post Notes</h3>
+			  {PostNotes}
+			</div> <!-- end #post-notes-->
+			{/block:PostNotes}
+				
+	  </div> <!-- end .post -->
+    {/block:Posts}
+    </div> <!-- end #posts -->
+    
+    {block:Pagination}
+    <div id="pagination">
+      {block:NextPage}<a id="back" href="{NextPage}" title="this way to older entries">&larr; Older Entries</a>{/block:NextPage}
+      {block:PreviousPage}<a id="forward" href="{PreviousPage}" title="this way to newer entries">Newer Entries &rarr;</a>{/block:PreviousPage}
+    </div>
+    {/block:Pagination}
+    
+    {block:PermalinkPagination}
+    <div id="pagination">
+      {block:PreviousPost}<a id="back" href="{PreviousPost}" title="this way to the previous post">&larr; Previous Post</a>{/block:PreviousPost}
+      {block:NextPost}<a id="forward" href="{NextPost}" title="this way to the next post">Next Post &rarr;</a>{/block:NextPost}
+    </div>
+    {/block:PermalinkPagination}
+    
+    {block:DayPagination}
+    <div id="pagination">
+      {block:PreviousDayPage}<a id="back" href="{PreviousDayPage}" title="this way to the previous day">&larr; Previous Day</a>{/block:PreviousDayPage}
+      {block:NextDayPage}<a id="forward" href="{NextDayPage}" title="this way to the next day">Next Day &rarr;</a>{/block:NextDayPage}
+    </div>
+    {/block:DayPagination}
+    
+    <div id="footer">  
+      <a href="{RSS}" id="rss">RSS</a>
+      
+      <p id="about">
+        {Description}
+      </p>
+      
+      {block:Twitter}
+      <div id="twitter">
+        <img src="http://static.tumblr.com/eth9fj1/eZVl3z7wq/twitter.png" id="tweet-icon" alt="This icon &copy; Iconfactory and Twitterrific" title="This icon belongs to the IconFactory and Twitterrific; used without permission"/>
+        <p id="tweet"></p>
+        <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/{TwitterUsername}.json?count=1&amp;callback=printTweet"></script>
+      </div>
+      {/block:Twitter}
+      
+      {block:HasPages}
+      <ul id="pages">
+        {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+      </ul>
+      {/block:HasPages}
+
+      <p id="etc">
+        <span class="copy"><em>Stirred</em> theme by <a href="http://cubicle17.com/">Bill Israel</a></span>
+        <span class="power">running on <a href="http://tumblr.com/">Tumblr</a></span>
+				<span class="backtotop"><a href="#container">back to top &uarr;</a></span>
+      </p>
+    </div> <!-- end #footer -->
+  </div> <!-- end #container -->
+
+</body>
+</html>

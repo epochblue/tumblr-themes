@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>{Title}{block:PostTitle} &mdash; {PostTitle}{/block:PostTitle}</title>
+
+  <link rel="shortcut icon" href="{Favicon}"/>
+  <link rel="alternate" type="application/rss+xml" href="{RSS}"/>
+  
+  <style type="text/css">
+    /* 100% Custom CSS :) */
+    {CustomCSS}
+  </style>
+</head>
+<body>
+  <div id="contain">
+    
+    <div id="header">
+      <h1><a href="/">{Title}</a></h1>
+      <div id="description">{Description}</div>
+    </div>
+    
+    <div id="content">
+    <!-- Loops for each post-type -->
+    {block:Posts}
+      <div class="post {TagsAsClasses}">
+        <div class="post-header">
+          {block:NewDayDate}
+          <h4 class="newdate">
+            <span class="day">{DayOfWeek}</span>
+            <span class="date">{Month} {DayOfMonthWithZero}, {Year}</span>
+            <span class="time">at {24Hour}:{Minutes}</span>
+          </h4>
+          {/block:NewDayDate}
+          {block:SameDayDate}
+          <h4 class="samedate">
+            <span class="day">{DayOfWeek}</span>
+            <span class="date">{Month} {DayOfMonthWithZero}, {Year}</span>
+            <span class="time">at {24Hour}:{Minutes}</span>
+          </h4>
+          {/block:SameDayDate}
+          
+        {block:Text}
+          <p class="post-metadata">
+            <span class="post-type">Text</span>
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          </p>
+        </div> <!-- end post-header -->
+      
+        <div class="text">
+          <h3>{Title}</h3>
+          {Body}
+        </div>
+        {/block:Text}
+    
+        {block:Quote}
+          <p class="post-metadata">
+            <span class="post-type">Quote</span>
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          </p>
+        </div> <!-- end post-header -->
+        
+        <div class="quote">
+          <blockquote class="words">&#8220;{Quote}&#8221;</blockquote>
+          {block:Source}<p class="source">&mdash; {Source}</p>{/block:Source}
+        </div>
+        {/block:Quote}
+  
+        {block:Link}
+          <p class="post-metadata">
+            <span class="post-type">Link</span>
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          </p>
+        </div> <!-- end post-header -->
+  
+        <div class="link">        
+          <h3><a href="{URL}" {Target}>{Name}</a></h3>
+          {block:Description}{Description}{/block:Description}
+        </div>
+        {/block:Link}
+  
+        {block:Video}
+          <p class="post-metadata">
+            <span class="post-type">Video</span>
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          </p>
+        </div> <!-- end post-header -->
+  
+        <div class="video">
+          {Video-400}
+          {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div> 
+        {/block:Video}
+  
+        {block:Audio}
+          <p class="post-metadata">
+            <span class="post-type">Audio</span>
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          </p>
+        </div> <!-- end post-header -->
+  
+        <div class="audio">
+          {AudioPlayerBlack}
+          {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Audio}
+  
+        {block:Photo}
+          <p class="post-metadata">
+            <span class="post-type">Photo</span>
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          </p>
+        </div> <!-- end post-header -->
+  
+        <div class="photo">
+          {LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+          {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Photo}
+  
+        {block:Chat}
+          <p class="post-metadata">
+            <span class="post-type">Chat</span>
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          </p>
+        </div> <!-- end post-header -->
+  
+        <div class="chat">
+          <ul class="conversation">
+            {block:Lines}
+            <li class="line {Alt}">
+              {block:Label}<span class="person">{Label}</span>{/block:Label}
+              <span class="person-said">{Line}</span>
+            </li>
+            {/block:Lines}
+          </ul>
+        </div> 
+        {/block:Chat}
+        
+        <!-- Only rendered if the post was reblogged from someone else -->
+        {block:RebloggedFrom}
+        <p class="was-reblogged">This post was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentTitle}">{ReblogParentTitle}</a>.</p>
+        {/block:RebloggedFrom}
+        
+      </div> <!-- end single post -->
+    {/block:Posts}
+      
+      {block:PermalinkPagination}
+      <!-- Pagination only rendered on permalink pages -->
+      <p class="previous-next">
+        {block:PreviousPost}<a href="{PreviousPost}" class="previous">&#8592; Previous Post</a>{/block:PreviousPost}
+        {block:NextPost}<a href="{NextPost}" class="next">Next Post &#8594;</a>{/block:NextPost}
+      </p> <!-- end previous/next (posts) -->
+      {/block:PermalinkPagination}
+      
+      {block:Pagination}
+      <!-- Pagination only rendered on index pages -->
+      <p class="previous-next">
+        {block:NextPage}<a href="{NextPage}" class="previous">&#8592; Older Entries</a>{/block:NextPage}
+        <span id="pages">Page {CurrentPage} of {TotalPages}</span>
+        {block:PreviousPage}<a href="{PreviousPage}" class="next">Newer Entries &#8594;</a>{/block:PreviousPage}
+      </p> <!-- end previous/next (pages) -->
+      {/block:Pagination}
+      
+    </div> <!-- end content -->
+    
+    <div id="footer">
+      <h4 id="">Want More?</h4>
+      <ul id="rss-archive">
+        <li><a href="{RSS}">Subscribe via RSS</a></li>
+        <li><a href="/archive">Browse the Archives</a></li>
+      </ul>
+    
+      <!-- Outputs a list of 30x30 pics of all the tumblelogs you follow -->
+      {block:Following}
+      <div id="following">
+        <h4 id="following-header">Tumbleroll</h4>
+        <ul class="followed">
+         {block:Followed}
+         <li><a href="{FollowedURL}"><img src="{FollowedPortraitURL-30}" alt="{FollowedName}" title="{FollowedTitle}"/></a></li>
+         {/block:Followed}
+        </ul>
+      </div>
+      {/block:Following}
+      
+      <p class="please_dont_hide_this">Powered by <a href="http://tumblr.com/">Tumblr</a>. Based on the <a href="http://customcss.tumblr.com/">&#123;CustomCSS&#125; theme</a> by <a href="http://cubicle17.com/">Bill Israel</a> and <a href="http://numblr.nostrich.net">Richard Dunlop-Walters</a>.</p>
+    </div> <!-- end footer -->
+  </div> <!-- end containing div -->
+</body>
+</html>

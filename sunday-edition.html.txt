@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- 
+  Theme: Sunday Edition  v1.7
+  Author: Bill Israel  [http://cubicle17.com/]
+  For: Tumblr  [http://tumblr.com/]
+  Terms: Free to use and alter, but please give credit.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>{block:SearchPage}Search results for "{SearchQuery}" - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    
+    <!-- DEFAULT COLORS -->
+    <meta name="color:Background Color" content="#ffffee"/>
+    <meta name="color:Text" content="#333333"/>
+    <meta name="color:Link Color" content="#aa5500"/>
+    <meta name="color:Link Hover Color" content="#000000"/>
+    <meta name="color:Header Color" content="#000000"/>
+    <meta name="color:Date Text" content="#999999"/>
+    <meta name="color:Date Color" content="#000000"/>
+    <meta name="color:Image Border" content="#333333"/>
+    <meta name="color:Image Background" content="#eeeeee"/>
+    <meta name="color:PreviousNext Color" content="#999999"/>
+    <meta name="color:Footer Border Color" content="#333333"/>
+    
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    <link rel="shortcut icon" href="{Favicon}"/>
+    <style type="text/css" media="screen">
+      body {
+        background: {color:Background Color};
+        color: {color:Text};
+        font: normal 14px Garamond, Georgia, serif;
+        margin: 0;
+        text-align: center;
+        line-height: 1.5em;
+      }
+      
+      a, a:visited, a:active {
+        color: {color:Link Color};
+        outline: 0;
+      }
+
+strong { font-weight: bold }
+em { font-weight: italic }
+
+      a:hover {
+        color: {color:Link Hover Color};
+      }
+      
+      #content {
+        margin: 0 auto;
+        width: 40em;
+        text-align: left;
+      }
+      
+      /* Title and Description */
+      h1 {
+        border-bottom: 3px solid {color:Header Color};
+        border-top: 5px solid {color:Header Color};
+        font-size: 3em;
+        line-height: 1;
+        margin: 0;
+        padding: .5em 0 .75em 0;
+      }
+      
+      h1 a, h1 a:active, h1 a:visited { 
+        color: {color:Header Color};
+        text-decoration: none;
+      }
+      
+      h1 a:hover {
+        color: {color:Link Color};
+      }
+      
+      h2 {
+        color: {color:Link Color};
+        font-size: 1.25em;
+        font-weight: normal;
+        margin: 0 0 1.5em;
+        text-align: right;
+      }
+
+			/* Search */
+			#search {
+				margin: 0 0 3em;
+				text-align: right;
+			}
+      
+			/* Search Results */
+			#searchresultcount {
+				margin: 1.5em 0 3em;
+				text-align: center;
+			}
+      
+      /* Dates */
+      .newdate, .samedate {
+        float: left;
+        width: 7em;
+        color: {color:Date Text};
+        text-align: center;
+      }
+      
+      
+      /* Permalinks Info */
+      a.date {
+        border-bottom: 1px solid {color:Date Color};
+        clear: left;
+        color: {color:Date Color};
+        display: block;
+        margin-bottom: .5em;
+        padding-bottom: .5em;
+        text-decoration: none;
+      }
+      
+      a.date:hover {
+        border-bottom: 1px solid {color:Link Color};
+        color: {color:Link Color};
+      }
+      
+      
+      /* Common to all posts */
+      .regular, .quote, .link, .photo, .video, .conversation, .audio {
+        margin-bottom: 4.5em;
+        margin-left: 8em;
+      }
+      
+      .regular h3, .link h3, .conversation h3 {
+        font-size: 1.5em;
+        margin: 0 0 .5em;
+      }
+      
+      
+      /* Regular Posts */
+      .regular blockquote, .link blockquote {
+        border-left: 3px solid {color:Header Color};
+        font-weight: bold;
+        margin: 1em 2em;
+        padding: 0 0 0 .5em;
+      }
+      
+      .regular ul, .regular ol {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      
+      .regular img {
+        max-width: 100%;
+        border:1px solid {color:Image Border};
+        background: {color:Image Background};
+        padding:5px;
+      }
+      
+      
+      /* Quote Post */
+      .quote {
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-left: 5.5em;
+      }
+      
+      .quote big {
+        font-weight: bold;
+      }
+      
+      .quote .source {
+        font-weight: normal;
+        margin-left: .5em;
+      }
+      
+      
+      /* Photo posts */
+      .photo .caption, .video .caption, .audio .caption {
+        display: block;
+      }
+      
+      .photo img {
+        border:1px solid {color:Image Border};
+        background: {color:Image Background};
+        padding:5px;
+      }
+      
+      
+      /* Conversation Posts */
+      .conversation ul {
+        list-style: none;
+        padding-left: 1.5em;
+      }
+      
+      .conversation li {
+        margin-top: 1em;
+        clear: both;
+      }
+      
+      .conversation .person {
+        display: block;
+        font-size: 1.25em;
+        font-weight: bold;
+      }
+
+      
+      /* Link Posts */
+      .link a {
+        font-weight: bold;
+      }
+      
+      .link a.hover {
+        color: {color:Link Hover Color};
+      }
+      
+      .link .description {
+        display: block;
+      }
+      
+      /* Previous and Next links */
+      #prevnext {
+        clear: both;
+        color: {color:PreviousNext Color};
+        margin-top: 6em;
+        margin-bottom: 4.5em;
+        text-align: center;
+      }
+      
+      #prevnext .prev {
+        font-weight: bold;
+        margin-right: 1em;
+      }
+      
+      #prevnext .next {
+        font-weight: bold;
+        margin-left: 1em;
+      }
+      
+      /* Footer */
+      #footer {
+        border-top: 2px solid {color:Footer Border Color};
+        clear: both;
+        font-size: .9em;
+        padding: .5em 0 1em;
+      }
+      
+      #footer h3 {
+        margin: 0;
+        padding: 0;
+      }
+      
+      #footer ul {
+        margin: 1em 0;
+        padding: 0;
+        text-align: center;
+      }
+      
+      #footer ul li {
+        display: inline;
+        margin: 0 .5em;
+      }
+
+			.query { font-weight: bold; }
+      
+      /* Custom CSS */
+      {CustomCSS}
+    </style>
+  </head>
+  
+  <body>
+    <div id="content">
+      <h1><a href="/">{Title}</a></h1>
+      <h2>{Description}</h2>
+      
+			<div id="search">
+				<form action="/search" method="get">
+				    <input type="text" name="q" value="{SearchQuery}"/>
+				    <input type="submit" value="Search"/>
+				</form>
+			</div>
+			
+			{block:SearchPage}
+			<div id="searchresultcount">
+				<p>Your search for <span class="query">{SearchQuery}</span> returned {SearchResultCount} result(s).</p>
+			</div>
+			{/block:SearchPage}
+
+      <div id="posts" class="autopagerize_page_element">
+      {block:Posts}
+        {block:NewDayDate}
+        <div class="newdate">
+          <a href="{Permalink}" class="date">{ShortMonth} {DayOfMonth}, {Year}</a>
+          {12Hour}:{Minutes}{AmPm}
+        </div>
+        {/block:NewDayDate}
+        {block:SameDayDate}
+        <div class="samedate">
+          <a href="{Permalink}" class="date">{ShortMonth} {DayOfMonth}, {Year}</a>
+          {12Hour}:{Minutes}{AmPm}
+        </div>
+        {/block:SameDayDate}
+        
+        {block:Text}
+        <div class="regular">
+          {block:Title}<h3>{Title}</h3>{/block:Title}
+          {Body}
+        {/block:Text}
+      
+        {block:Quote}
+        <div class="quote">
+          <big>&#147;</big>
+          {Quote}
+          <big>&#148;</big>
+          {block:Source}<span class="source">- {Source}</span>{/block:Source}
+        {/block:Quote}
+        
+        {block:Photo}
+        <div class="photo">
+          {LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+          {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+        {/block:Photo}
+        
+        {block:Chat}
+        <div class="conversation">
+          {block:Title}<h3>{Title}</h3>{/block:Title}
+          <ul>
+            {block:Lines}<li>
+              {block:Label}<span class="person">{Label}</span>{/block:Label}
+              {Line}
+            </li>{/block:Lines}
+          </ul>
+        {/block:Chat}
+      
+        {block:Link}
+        <div class="link">
+          <h3><a href="{URL}" {Target}>{Name}</a></h3>
+          {block:Description}<span class="description">{Description}</span>{/block:Description}
+        {/block:Link}
+      
+        {block:Video}
+        <div class="video">
+          {Video-400}
+          {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+        {/block:Video}
+        
+        {block:Audio}
+        <div class="audio">
+          {AudioPlayerBlack}
+          {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+        {/block:Audio}
+        
+          {block:Permalink}
+            <!-- DIQUS PERMALINK INFO HERE -->
+          {/block:Permalink}
+        
+        </div>
+      {/block:Posts}
+      </div> <!-- end posts -->
+      
+      <div id="prevnext" class="autopagerize_insert_before">
+        {block:NextPage}<a href="{NextPage}" class="prev" rel="next">&#0171; Earlier Edition</a>{/block:NextPage}
+        Page {CurrentPage} of {TotalPages}
+        {block:PreviousPage}<a href="{PreviousPage}" class="next">Later Edition &#0187;</a>{/block:PreviousPage}
+      </div>
+      
+      <div id="footer">
+        <ul>
+          <li><strong>Powered by</strong>: <a href="http://tumblr.com/">Tumblr</a></li>
+          <li><strong>Theme by</strong>: <a href="http://cubicle17.com/">Bill Israel</a></li>
+          <li><strong>Syndicated by</strong>: <a href="{RSS}">RSS</a></li>
+          <li><strong>Browse the</strong>: <a href="/archive">Archives</a></li>
+      </div>
+    </div>
+  </body>
+</html>

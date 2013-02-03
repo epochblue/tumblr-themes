@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
+  
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="author" content="Bill Israel"/>
+	<meta name="viewport" content="width=650"/>
+	
+	<link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+	<link rel="shortcut icon" href="{Favicon}"/>
+	<link rel="alternate" type="application/rss+xml" href="{RSS}"/>
+	
+	<style type="text/css" media="screen">
+		html { font-size: 12px; }
+		body { background: #eed; border-top: 10px solid #630f10; color: #555; font: normal 1em/1.5 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Trebuchet MS", sans-serif; margin: 0; padding: 0; }
+
+		:focus { outline: 0; }
+
+		a:link, a:visited, a:active { color: #630f10; text-decoration: none; }
+		a:hover, a:focus { background: #630f10; color: #eed; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+
+		a img { border: 0; }
+
+		h1, h2, h3, h4, h5, h6 { font-family: "Gill Sans MT Pro", "Gill Sans MT", "Gill Sans", "Trebuchet MS", sans-serif; font-weight: normal; margin: 0; padding: 0; }
+
+		h2 { font-size: 1.75em; line-height: 1; margin-bottom: 0.83333333em; }
+		h3 { font-size: 1.4em; line-height: 1.071428; margin: 0.5em 0 0.571428em;}
+
+		p { margin: 0 0 1.5em; }
+		ul, ol { list-style-position: outside; margin: 0 0 1.5em; padding: 0; }
+		blockquote { border-left: 2px solid #630f10; color: #777; margin: 0 1em 1.5em; padding: 0 1em; }
+		blockquote ul, blockquote ol { margin: 0 1.5em 1.5em; }
+		code { font-family: "Monaco", "Andale Mono", monospace; white-space: pre; }
+
+		#container { margin: 0 auto; padding: 0; width: 600px; }
+
+		#header { border-bottom: 1px solid #630f10; float: left; margin: 1.5em 0 0; padding: 0.75em 0; width: 600px; }
+		#header h1 { float: left; font-size: 3em; line-height: 1em; margin: 0; text-align: left; width: 350px; }
+		#header #search { margin: 0 0 0 370px; text-align: right; }
+		#header #search input { display: inline; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; }
+		#header #search input#searchbox { background: #e0e0d0;  border: 1px solid #630f10; color: #630f10; padding: 0.25em; }
+		#header #search input#submitsearch { background: #630f10; border: 1px solid #731f20; color: #eed; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+
+
+		/* POSTS */  
+		#posts { clear: left; padding: 3em 0; }
+
+		#posts #searchresultcount { margin-left: 96px; font-size: 1.1em; font-style: italic; text-align: left; }
+		#posts #searchresultcount .query { font-weight: bold; font-style: normal; }
+
+		.text, .link, .quote, .audio, .photo, .video, .chat { clear: left; margin-bottom: 6em; margin-left: 96px; position: relative; }
+		.date { display: block; padding-right: 25px; font-size: 1.1em; position: absolute; left: -96px; width: 50px; }
+		.caption, .source { margin: 1.5em 0; }
+		.reblog { color: #777; font-size: 0.8333333em; font-style: italic; text-align: right; }
+		
+		.chat ul { list-style: none; }
+		.chat ul li .label { font-size: 1.2em; font-weight: bold; }
+		.chat ul li.odd { color: #222; }
+
+		.quote blockquote { border: 0; color: #555; font-family: "Gill Sans MT Pro", "Gill Sans MT", "Gill Sans", "Trebuchet MS", sans-serif; font-size: 1.5em; font-weight: normal; line-height: 1; margin: 0; padding: 0; }
+		.quote blockquote p { margin: 0 0 1em; }
+		.photo img { border: 2px solid #555; }
+
+
+		/* PAGINATION */
+		#pagination { clear: left; margin-bottom: 1.5em; margin-left: 96px; }
+		#pagination #back { margin-right: 2em; }
+
+		#footer { border-top: 1px solid #630f10; margin: 3em 0; padding: 1.5em 0; }
+		#footer #rss { background: transparent url(http://static.tumblr.com/eth9fj1/coOkh9xtl/bigred-rss.png) no-repeat right center; display: block; float: right; height: 36px; text-indent: -9999px; width: 80px; }
+		#footer #about { padding-right: 80px; }
+		#footer #meta-links { list-style: none; }
+		#footer #meta-links li { display: inline; margin-right: 1em; }
+		#footer #etc { color: #776; font-size: 0.9166667em; }
+		#footer #etc .power { margin-left: 1em; }
+
+
+		/* TWITTER BADGE */
+		#twitter_div { overflow: visible; margin: 1.5em 0; position: relative; }
+		#tweet-icon { height: 16px; margin: 0; width: 16px; position: absolute; left: 0; }
+		#twitter_update_list { background: #630f10; color: #eed; margin-left: 25px; padding: 0 0.75em; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+		#twitter_update_list a { color: #d66869; font-size: 0.833333em; margin-left: 0.5em; }
+		#twitter_update_list a:hover { color: #eed; }
+		
+		/* CUSTOM CSS */
+		{CustomCSS}
+	</style>
+</head>
+<body>
+  <div id="container">
+		<div id="header">
+    	<h1><a href="/">{Title}</a></h1>
+			<div id="search">
+				<form action="/search" method="get">
+					<input id="searchbox" type="text" name="q" value="{SearchQuery}" size="20"/>
+				  <input id="submitsearch" type="submit" value="Search"/>
+				</form>
+			</div>
+		</div>
+    
+    <div id="posts">
+		{block:SearchPage}
+			<p id="searchresultcount">Your search for <span class="query">{SearchQuery}</span> returned {SearchResultCount} result(s).</p>
+		{/block:SearchPage}
+	
+    {block:Posts}
+      {block:Text}
+      <div class="post text">
+        <span class="date"><a href="{Permalink}">{ShortMonth} {DayOfMonth}</a></span>
+        
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        {Body}
+        
+        {block:RebloggedFrom}
+        <div class="reblog">
+          <p>(this post was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentName}">{ReblogParentTitle}</a>)</p>
+        </div>
+        {/block:RebloggedFrom}
+      </div> <!-- end .post -->
+      {/block:Text}
+      
+      {block:Link}
+      <div class="post link">
+        <span class="date"><a href="{Permalink}">{ShortMonth} {DayOfMonth}</a></span>
+        
+        <h2><a href="{URL}">{Name}</a></h2>
+        <div class="link-body">
+          {block:Description}{Description}{/block:Description}
+        </div>
+        
+        {block:RebloggedFrom}
+        <div class="reblog">
+          <p>(this post was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentName}">{ReblogParentTitle}</a>)</p>
+        </div>
+        {/block:RebloggedFrom}
+      </div> <!-- end .post -->
+      {/block:Link}
+      
+      {block:Audio}
+      <div class="post audio">
+        <span class="date"><a href="{Permalink}">{ShortMonth} {DayOfMonth}</a></span>
+        
+        {AudioPlayerBlack}
+        
+        {block:Caption}
+        <div class="caption">
+          {Caption}
+        </div>
+        {/block:Caption}
+        
+        {block:RebloggedFrom}
+        <div class="reblog">
+          <p>(this post was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentName}">{ReblogParentTitle}</a>)</p>
+        </div>
+        {/block:RebloggedFrom}
+      </div> <!-- end .post -->
+      {/block:Audio}
+      
+      {block:Video}
+      <div class="post video">
+        <span class="date"><a href="{Permalink}">{ShortMonth} {DayOfMonth}</a></span>
+        
+        {Video-500}
+        
+        {block:Caption}
+        <div class="caption">
+          {Caption}
+        </div>
+        {/block:Caption}
+        
+        {block:RebloggedFrom}
+        <div class="reblog">
+          <p>(this post was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentName}">{ReblogParentTitle}</a>)</p>
+        </div>
+        {/block:RebloggedFrom}
+      </div> <!-- end .post -->
+      {/block:Video}
+      
+      {block:Photo}
+      <div class="post photo">
+        <span class="date"><a href="{Permalink}">{ShortMonth} {DayOfMonth}</a></span>
+        
+        {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+        
+        {block:Caption}
+        <div class="caption">
+          {Caption}
+        </div>
+        {/block:Caption}
+        
+        {block:RebloggedFrom}
+        <div class="reblog">
+          <p>(this post was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentName}">{ReblogParentTitle}</a>)</p>
+        </div>
+        {/block:RebloggedFrom}
+      </div> <!-- end .post -->
+      {/block:Photo}
+      
+      {block:Quote}
+      <div class="post quote">
+        <span class="date"><a href="{Permalink}">{ShortMonth} {DayOfMonth}</a></span>
+        
+        <blockquote><p>{Quote}</p></blockquote>
+        
+        {block:Source}
+        <div class="source">
+          &mdash; {Source}
+        </div>
+        {/block:Source}
+        
+        {block:RebloggedFrom}
+        <div class="reblog">
+          <p>(this post was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentName}">{ReblogParentTitle}</a>)</p>
+        </div>
+        {/block:RebloggedFrom}
+      </div> <!-- end .post -->
+      {/block:Quote}
+
+			{block:Chat}
+			<div class="post chat">
+				<span class="date"><a href="{Permalink}">{ShortMonth} {DayOfMonth}</a></span>
+				
+				<ul>
+					{block:Lines}
+					<li class="{Alt}">
+						{block:Label}<span class="label">{Label}</span>{/block:Label}
+						{Line}
+					</li>	
+					{/block:Lines}
+				</ul>
+				
+				{block:RebloggedFrom}
+        <div class="reblog">
+          <p>(this post was reblogged from <a href="{ReblogParentURL}" title="{ReblogParentName}">{ReblogParentTitle}</a>)</p>
+        </div>
+        {/block:RebloggedFrom}
+			</div> <!-- end .post -->
+			{/block:Chat}
+    {/block:Posts}
+    </div> <!-- end #posts -->
+    
+    {block:Pagination}
+    <div id="pagination">
+      {block:NextPage}<a id="back" href="{NextPage}" title="this way to older entries">&larr; Older Entries</a>{/block:NextPage}
+      {block:PreviousPage}<a id="forward" href="{PreviousPage}" title="this way to newer entries">Newer Entries &rarr;</a>{/block:PreviousPage}
+    </div>
+    {/block:Pagination}
+    
+    {block:PermalinkPagination}
+    <div id="pagination">
+      {block:PreviousPost}<a id="back" href="{PreviousPost}" title="this way to the previous post">&larr; Previous Post</a>{/block:PreviousPost}
+      {block:NextPost}<a id="forward" href="{NextPost}" title="this way to the next post">Next Post &rarr;</a>{/block:NextPost}
+    </div>
+    {/block:PermalinkPagination}
+    
+    <div id="footer">  
+      <a href="{RSS}" id="rss">RSS</a>
+      
+      <p id="about">{Description}</p>
+      
+<!-- To enable the twitter badge, uncomment this div, and
+	 	 the two scripts at the bottom
+			<div id="twitter_div">
+				<img src="http://static.tumblr.com/eth9fj1/8nfkh9xuk/bigred-twitter.gif" id="tweet-icon"/>
+				<ul id="twitter_update_list"></ul>
+			</div>
+-->
+      
+      <ul id="meta-links">
+				<li id="home"><a href="/">Home</a></li>
+        <li id="archive"><a href="/archive">Archive</a></li>
+				<li id="random"><a href="/random">Random</a></li>
+				<li id="mobile"><a href="/mobile">Mobile</a></li>
+      </ul>
+
+      <p id="etc">
+        <span class="theme">Big Red theme by <a href="http://cubicle17.com/">Bill Israel</a></span>
+        <span class="power">running on <a href="http://tumblr.com/">Tumblr</a></span>
+      </p>
+    </div> <!-- end #footer -->
+  </div> <!-- end #container -->
+
+  <!-- Twitter Badge -->
+<!-- Uncomment these two scripts to enable to the twitter badge
+	<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+	<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/[username].json?callback=twitterCallback2&amp;count=1"></script>
+-->
+</body>
+</html>

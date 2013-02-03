@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- 
+  Theme: Easy Reader  v1.2
+  Author: Bill Israel  [http://cubicle17.com/]
+  For: Tumblr  [http://tumblr.com/]
+  Terms: Free to use and alter, but please give credit.
+-->
+  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <!-- DEFAULT COLORS -->
+  <meta name="color:Background" content="#fff"/>
+  <meta name="color:Title" content="#222"/>
+  <meta name="color:Description" content="#999"/>
+  <meta name="color:Text" content="#404040"/>
+  <meta name="color:Link" content="#c03030"/>
+  <meta name="color:Post Border" content="#cccccc"/>
+  <meta name="color:Date Border" content="#cccccc"/>
+  <meta name="color:Post Footer" content="#999999"/>
+  <!-- END DEFAULT COLORS -->
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss"/>
+  <link rel="shortcut icon" href="{Favicon}"/>
+  <title>{Title} {block:PostSummary}- {PostSummary}{/block:PostSummary}</title>
+  <style type="text/css">
+    body {
+      background: {color:Background};
+      color: {color:Text};
+      font: normal 1em/1.5em Georgia, serif;
+      margin: 0;
+      padding: 0;
+      text-align: center; /* for ie5.5/win */
+    }
+    
+    a, a:active, a:visited {
+      color: {color:Link};
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    blockquote, ol, p, ul {
+      margin: 0 0 1.5em;
+      padding: 0;
+    }
+    
+    ol, ul {
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+    
+    blockquote {
+      border-left: 2px solid {color:Title};
+      font-style: italic;
+      margin-left: 1em;
+      padding: 0 2em 0 1em;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: {color:Title};
+      margin: 0 0 1.5em;
+      padding: 0;
+    }
+    
+    h1 {
+      font-size: 3em;
+      line-height: 1;
+      margin-bottom: .5em;
+    }
+    
+    h1 a, h1 a:visited, h1 a:active {
+      color: {color:Title};
+    }
+    
+    h1 a:hover {
+      color: {color:Link};
+      text-decoration: none;
+    }
+    
+    h2 {
+      color: {color:Description};
+      font-size: 1em;
+      margin-bottom: .5em;
+    }
+    
+    h3 {
+      font-size: 1.4em;
+    }
+    
+    
+    /* LAYOUT */
+    #contain {
+      margin: 0 auto;
+      text-align: left;
+      width: 50em;
+    }
+    
+    #posts {
+      float: left;
+      width: 35em;
+    }
+    
+    #sidebar {
+      margin-left: 39em;
+      padding-top: 2em;
+    }
+    
+    
+    /* HEADER */
+    #header {
+      border-bottom: 1px solid {color:Post Border};
+      margin: 1.5em 0;
+    }
+    
+    
+    /* Content container */
+    #posts {
+      margin: 0 auto;
+    }
+    
+    
+    /* Metadata */
+    #meta {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+    }
+    
+    #meta li {
+      display: inline;
+    }
+    
+    
+    /* Individual Posts */
+    .post {
+      border-bottom: 1px solid {color:Post Border};
+      padding: 2em 0 1em;
+    }
+    
+    .post .date {
+      border-top: 3px solid {color:Date Border};
+      border-bottom: 1px solid {color:Date Border};
+      float: left;
+      padding: .25em 1em;
+      text-align: center;
+    }
+    
+    .post .date .month, .post .date .day, .post .date .time {
+      color: {color:Description;};
+      display: block;
+      font-weight: normal;
+    }
+    
+    .post .date .month {
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    
+    .post .date .day {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .post .date a, .post .date a:visited, .post .date a:active {
+      font-weight: normal;
+    }
+    
+    .post .regular, .post .quote, .post .link, .post .conversation,
+    .post .photo, .post .video, .post .audio {
+      margin-left: 7em;
+      padding: 0;
+    }
+    
+    .post .photo .caption, .post .video .caption,
+    .post .quote .source, .post .audio .caption {
+      display: block;
+      margin-bottom: 1.5em;
+    }
+    
+    .post .quote .source {
+      font-style: italic;
+      text-align: right;
+    }
+    
+    .post .conversation ul {
+      list-style: none;
+      margin: 0 .5em 1.5em;
+      padding: 0;
+    }
+    
+    .post .conversation ul li {
+      padding: .5em 0;
+    }
+    
+    .post .conversation ul li .person {
+      font-weight: bold;
+      margin-right: 1em;
+    }
+    
+    .post .post-footer {
+      color: {color:Post Footer};
+      margin-left: 7em;
+      text-align: right;
+    }
+    
+    .post .post-footer .permalink, .post .post-footer .when {
+      font-size: .75em;
+      font-weight: normal;
+      margin-left: 1em;
+    }
+    
+    /* Previous and Next Links */
+    #prev-next {
+      margin-left: 7em;
+      padding: 1.5em 0 3em;
+    }
+    
+    #prev {
+      margin-right: 1.5em;
+    }
+    
+    #next {
+      margin-left: 1.5em;
+    }
+    
+    #footer {
+      border-top: 1px solid {color:Description};
+      clear: left;
+      font-size: .85em;
+    }
+    
+    #footer a, #footer a:active, #footer a:visited {
+      color: {color:Title};
+    }
+    
+    #footer ul {
+      list-style: none;
+      margin: 1em 0;
+      padding: 0;
+      text-align: center;
+    }
+    
+    #footer ul li {
+      display: inline;
+      margin: 0.5em;
+    }
+    
+    
+    #search { text-align: right; }
+    #search input { text-align: left; }
+    #searchresultcount { margin: 1.5em 0; text-align: center; }
+    #searchresultcount .query { font-weight: bold; }
+    
+    /* Custom CSS */
+    {CustomCSS}
+  </style>
+</head>
+<body>
+    <div id="contain">
+      <div id="header">
+        <h1><a href="/">{Title}</a></h1>
+        <h2>{Description}</h2>
+        
+        <ul id="meta">
+          <li id="rss"><a href="{RSS}">RSS</a></li> /
+          <li id="archive"><a href="/archive">Archive</a></li>
+        </ul>
+      </div>
+      
+      <div id="posts" class="autopagerize_page_element">
+        {block:SearchPage}
+        <p id="searchresultcount">Your search for <span class="query">{SearchQuery}</span> returned {SearchResultCount} result(s).</p>
+        {/block:SearchPage}
+        
+        {block:Posts}
+        <div class="post">
+          {block:NewDayDate}
+          <div class="date">
+            <span class="month">{ShortMonth}</span>
+            <span class="day">{DayOfMonth}</span>
+          </div>
+          {/block:NewDayDate}
+          
+          {block:Text}
+          <div class="regular">
+            {block:Title}<h3>{Title}</h3>{/block:Title}
+            {Body}
+          </div>
+          <div class="post-footer">
+            <span class="when">Posted at {12Hour}:{Minutes}{AmPm}</span>
+          {/block:Text}
+
+          {block:Quote}
+          <div class="quote">
+            <span class="words">&#0147;{Quote}&#0148;</span>
+            {block:Source}<span class="source">{Source}</span>{/block:Source}
+          </div>
+          <div class="post-footer">
+            <span class="when">Posted at {12Hour}:{Minutes}{AmPm}</span>
+          {/block:Quote}
+
+          {block:Link}
+          <div class="link">
+            <h3><a href="{URL}" {Target}>{Name}</a></h3>
+            <div class="link-body">
+            {block:Description}{Description}{/block:Description}
+            </div>
+          </div>
+          <div class="post-footer">
+            <span class="when">Posted at {12Hour}:{Minutes}{AmPm}</span>
+          {/block:Link}
+        
+          {block:Chat}
+          <div class="conversation">
+            {block:Title}<h3>{Title}</h3>{/block:Title}
+            <ul>
+              {block:Lines}
+              <li>
+                {block:Label}<span class="person">{Label}</span>{/block:Label}
+                <span class="line">{Line}</span></li>
+              {/block:Lines}
+            </ul>
+          </div>
+          <div class="post-footer">
+            <span class="when">Posted at {12Hour}:{Minutes}{AmPm}</span>
+          {/block:Chat}
+
+          {block:Photo}
+          <div class="photo">
+            {LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          </div>
+          <div class="post-footer">
+            <span class="when">Posted at {12Hour}:{Minutes}{AmPm}</span>
+          {/block:Photo}
+
+          {block:Video}
+          <div class="video">
+            {Video-400}
+            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          </div>
+          <div class="post-footer">
+            <span class="when">Posted at {12Hour}:{Minutes}{AmPm}</span>
+          {/block:Video}
+          
+          {block:Audio}
+          <div class="audio">
+            {AudioPlayerGrey}
+            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          </div>
+          <div class="post-footer">
+            <span class="when">Posted at {12Hour}:{Minutes}{AmPm}</span>
+          {/block:Audio}
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+          </div>
+          <br clear="all"/>
+        </div> <!-- end single post -->
+        {/block:Posts}
+        
+        <div id="prev-next" class="autopagerize_insert_before">
+          {block:NextPage}<a href="{NextPage}" id="prev" rel="next">&#8592; Older Posts</a>{/block:NextPage}
+          Page {CurrentPage} of {TotalPages}
+          {block:PreviousPage}<a href="{PreviousPage}" id="next">Newer Posts &#8594;</a>{/block:PreviousPage}
+        </div>
+      </div>
+        
+      <div id="sidebar">
+        <div id="search">
+          <form action="/search" method="get">
+              <input type="text" name="q" value="{SearchQuery}"/>
+              <input type="submit" value="Search"/>
+          </form>
+        </div>
+        
+        <!-- MORE SIDEBAR CONTENT HERE -->
+      </div>
+      
+      <div id="footer">
+        <ul>
+          <li><a href="http://tumblr.com/">Tumblr</a> powered</li>
+          <li><a href="http://cubicle17.com/">Bill Israel</a> designed</li>
+          <li><a href="/rss">RSS</a> syndicated</li>
+        </ul>       
+      </div> <!-- end footer -->
+    </div> <!-- end container -->
+</body>
+</html>
