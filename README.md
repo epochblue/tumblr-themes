@@ -3,8 +3,7 @@ Tumblr Themes
 
 These are the [tumblr](http://tumblr.com/) themes I designed early in
 Tumblr's life. They're all available for free, with loose licensing.
-
-All these themes are installable more diretly by visiting
+All themes are installable more directly by visiting
 [http://tumblr.com/themes/by/cubicle17](http://tumblr.com/themes/by/cubicle17).
 
 
